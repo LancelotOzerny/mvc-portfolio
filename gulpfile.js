@@ -86,7 +86,11 @@ const browserTasker = new class
             server: {
                 baseDir: config.outputDir
             },
-            files: config.outputDir + '(html|css|js|ttf|png|svg|jpg|jpeg)',
+            files: [
+                config.outputDir + '**/*.html',
+                config.outputDir + '**/*.css',
+                config.outputDir + '**/*.js'
+            ],
             port: 3000,
             open: true,
             notify: false,
@@ -95,12 +99,12 @@ const browserTasker = new class
 
     reloadPage()
     {
-        return browserSync.reload({ stream: false });
+        browserSync.reload({ stream: false });
     }
 
     updatePage()
     {
-        return browserSync.reload({ stream: true });
+        browserSync.reload({ stream: true });
     }
 }
 
