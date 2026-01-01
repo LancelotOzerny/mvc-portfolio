@@ -2,6 +2,11 @@
 @anim-gradient-before: linear-gradient(135deg, #007acc 0%, #00d4ff00 100%);
 @anim-gradient-after: linear-gradient(135deg, #007acc 0%, #00d4ff00 100%);
 
+@title-large-size: 3.5rem;
+@title-medium-size: 3rem;
+@title-small-size: 2.5rem;
+@font-size-change-step: .1rem;
+
 @primary-color: #2c3e50;
 
 .page-title
@@ -11,24 +16,24 @@
   color: @primary-color;
   letter-spacing: -1px;
   line-height: 1.2;
-  font-size: 3rem;
+  font-size: @title-medium-size;
   transition: .45s;
 
   position: relative;
 
   &--large
   {
-    font-size: 3.5rem;
+    font-size: @title-large-size;
   }
 
   &--medium
   {
-    font-size: 3rem;
+    font-size: @title-medium-size;
   }
 
   &--small
   {
-    font-size: 2.5rem;
+    font-size: @title-small-size;
   }
 
   &--animated
@@ -86,6 +91,213 @@
         background: @anim-gradient-blue;
         left: calc(25% / 2);
       }
+    }
+  }
+}
+
+@media (max-width: 1920px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step;
+    }
+  }
+}
+
+@media (max-width: 1440px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step * 2;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step * 2;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step * 2;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step * 2;
+    }
+  }
+}
+
+@media (max-width: 1200px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step * 3;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step * 3;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step * 3;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step * 3;
+    }
+  }
+}
+
+@media (max-width: 1080px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step * 4;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step * 4;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step * 4;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step * 4;
+    }
+  }
+}
+
+@media (max-width: 992px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step * 5;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step * 5;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step * 5;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step * 5;
+    }
+  }
+}
+
+@media (max-width: 768px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step * 6;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step * 6;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step * 6;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step * 6;
+    }
+  }
+}
+
+@media (max-width: 576px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step * 7;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step * 7;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step * 7;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step * 7;
+    }
+  }
+}
+
+@media (max-width: 375px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step * 8;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step * 8;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step * 8;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step * 8;
+    }
+  }
+}
+
+@media (max-width: 320px)
+{
+  .page-title
+  {
+    font-size: @title-medium-size - @font-size-change-step * 9;
+
+    &--large
+    {
+      font-size: @title-large-size - @font-size-change-step * 9;
+    }
+
+    &--medium
+    {
+      font-size: @title-medium-size - @font-size-change-step * 9;
+    }
+
+    &--small
+    {
+      font-size: @title-small-size - @font-size-change-step * 9;
     }
   }
 }
