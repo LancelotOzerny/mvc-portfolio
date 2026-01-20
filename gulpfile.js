@@ -5,6 +5,7 @@ const typescript = require('gulp-typescript')
 const browserSync = require('browser-sync').create();
 const concat = require('gulp-concat');
 const imagemin = require('gulp-imagemin');
+const fs = require('fs');
 
 
 // ==========================================
@@ -200,10 +201,15 @@ const tsTasker = new class
 // ========================================== JAVASCRIPT
 const jsTasker = new class
 {
-    optimize()
+    optimize(done)
     {
-        return src(pathes.javascript.src)
-            .pipe(dest(pathes.typescript.dest))
+        if (dirExists(pathes.javascript.src))
+        {
+            return src(pathes.javascript.src)
+                .pipe(dest(pathes.typescript.dest))
+        }
+
+        done();
     }
 
     watch()
@@ -264,6 +270,23 @@ const fontsTasker = new class
 
 
 
+
+
+
+// ==========================================
+// SECTION: FUNCTIONS
+// ==========================================
+function dirExists(path)
+{
+    try
+    {
+        return fs.statSync(path).isDirectory();
+    }
+    catch (error)
+    {
+        return false;
+    }
+}
 
 
 
