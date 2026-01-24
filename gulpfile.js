@@ -42,25 +42,21 @@ let pathes = new class {
     };
 
     images = {
-        follow: config.inputDir + '/assets/**/*.(png|svg|jpg|jpeg)',
         src: config.inputDir + '/assets/**/*.(png|svg|jpg|jpeg)',
         dest: config.outputDir + '/assets/',
     };
 
     fonts = {
-        follow: config.inputDir + '/assets/fonts/**/*.ttf',
         src: config.inputDir + '/assets/fonts/**/*.ttf',
         dest: config.outputDir + '/assets/fonts/',
     };
 
     javascript = {
-        follow: config.inputDir + '/js/**/*.js',
         src: config.inputDir + '/js/**/*.js',
         dest: config.outputDir + '/assets/scripts/',
     };
 
     typescript = {
-        follow: config.inputDir + '/typescript/**/*.ts',
         src: config.inputDir + '/typescript/**/*.ts',
         dest: config.outputDir + '/assets/scripts/',
     };
@@ -118,16 +114,33 @@ const browserTasker = new class
 // ========================================== PUG
 const pugTasker = new class
 {
-    compile()
-    {
+    compile(done) {
+        if (!pathExists(pathes.pug.src)) {
+            console.log('Pug source directory not found:', pathes.pug.src);
+            done();
+            return;
+        }
+
+        console.log('Compiling Pug files...');
+
         return src(pathes.pug.src)
             .pipe(pug({ pretty: true }))
+            .on('error', (err) => {
+                console.error('Pug compilation failed:', err);
+                done(err);
+            })
             .pipe(dest(pathes.pug.dest))
+            .on('end', () => {
+                console.log('Pug compiled successfully.');
+                done();
+            });
     }
+
 
     watch()
     {
-        watch(pathes.pug.follow, series(this.compile, browserTasker.reloadPage));
+        let followPath = pathes.pug.follow ?? pathes.pug.src;
+        watch(followPath, series(this.compile, browserTasker.reloadPage));
     }
 }
 
@@ -140,15 +153,27 @@ const pugTasker = new class
 // ========================================== LESS
 const lessTasker = new class
 {
-    baseCompile()
+    baseCompile(done)
     {
+        if (pathExists(pathes.less.src.base) === false)
+        {
+            done();
+            return;
+        }
+
         return src(pathes.less.src.base)
             .pipe(less({}))
             .pipe(dest(pathes.less.dest))
     }
 
-    componentsCompile()
+    componentsCompile(done)
     {
+        if (pathExists(pathes.less.src.components) === false)
+        {
+            done();
+            return;
+        }
+
         return src(pathes.less.src.components)
             .pipe(less({}))
             .pipe(concat('components.css'))
@@ -172,8 +197,14 @@ const lessTasker = new class
 // ========================================== TYPESCRIPT
 const tsTasker = new class
 {
-    compile()
+    compile(done)
     {
+        if (pathExists(pathes.typescript.src) === false)
+        {
+            done();
+            return;
+        }
+
         const tsProject = typescript.createProject('tsconfig.json');
 
         return src(pathes.typescript.src)
@@ -184,7 +215,8 @@ const tsTasker = new class
 
     watch()
     {
-        watch(pathes.typescript.follow, series(this.compile, browserTasker.reloadPage));
+        let followPath = pathes.typescript.follow ?? pathes.typescript.src;
+        watch(followPath, series(this.compile, browserTasker.reloadPage));
     }
 }
 
@@ -200,15 +232,22 @@ const tsTasker = new class
 // ========================================== JAVASCRIPT
 const jsTasker = new class
 {
-    optimize()
+    optimize(done)
     {
+        if (pathExists(pathes.javascript.src) === false)
+        {
+            done();
+            return;
+        }
+
         return src(pathes.javascript.src)
             .pipe(dest(pathes.typescript.dest))
     }
 
     watch()
     {
-        watch(pathes.javascript.follow, series(this.optimize, browserTasker.reloadPage));
+        let followPath = pathes.javascript.follow ?? pathes.javascript.src;
+        watch(followPath, series(this.optimize, browserTasker.reloadPage));
     }
 }
 
@@ -222,8 +261,14 @@ const jsTasker = new class
 // ========================================== IMAGES
 const imagesTasker = new class
 {
-    optimize()
+    optimize(done)
     {
+        if (pathExists(pathes.images.src) === false)
+        {
+            done();
+            return;
+        }
+
         return src(pathes.images.src, { encoding: false })
             .pipe(imagemin([
                 imagemin.gifsicle({interlaced: true}),
@@ -236,7 +281,8 @@ const imagesTasker = new class
 
     watch()
     {
-        watch(pathes.images.follow, series(this.optimize, browserTasker.reloadPage));
+        let followPath = pathes.images.follow ?? pathes.images.src;
+        watch(followPath, series(this.optimize, browserTasker.reloadPage));
     }
 }
 
@@ -250,18 +296,40 @@ const imagesTasker = new class
 // ========================================== FONTS
 const fontsTasker = new class
 {
-    optimize()
+    optimize(done)
     {
-        return src(pathes.fonts.src)
+        if (pathExists(pathes.fonts.src) === false)
+        {
+            done();
+            return;
+        }
+
+        return src(pathes.fonts.src, { encoding: false })
             .pipe(dest(pathes.fonts.dest))
     }
 
     watch()
     {
-        watch(pathes.fonts.follow, series(this.optimize, browserTasker.reloadPage));
+        let followPath = pathes.fonts.follow ?? pathes.fonts.src;
+        watch(followPath, series(this.optimize, browserTasker.reloadPage));
     }
 }
 
+
+
+
+
+
+
+// ==========================================
+// SECTION: FUNCTIONS
+// ==========================================
+
+function pathExists(globPattern)
+{
+    const files = require('glob').sync(globPattern);
+    return files.length > 0;
+}
 
 
 
@@ -275,17 +343,17 @@ const fontsTasker = new class
 // ==========================================
 
 // ========================================== COMPILE
-exports.compilePug = pugTasker.compile;
+exports.compilePug  = pugTasker.compile;
+exports.compileTs   = tsTasker.compile;
 exports.compileLess = series(
     lessTasker.componentsCompile,
-    lessTasker.baseCompile,
+    lessTasker.baseCompile
 );
-exports.compileTs = tsTasker.compile;
 
 // ========================================== OPTIMIZE
-exports.optimizeJs = jsTasker.optimize;
-exports.optimizeImages = imagesTasker.optimize;
-exports.optimizeFonts = fontsTasker.optimize;
+exports.optimizeJs      = jsTasker.optimize;
+exports.optimizeImages  = imagesTasker.optimize;
+exports.optimizeFonts   = fontsTasker.optimize;
 
 
 // ========================================== OTHER
@@ -294,7 +362,7 @@ exports.default = parallel(
         pugTasker.compile,
         lessTasker.componentsCompile,
         lessTasker.baseCompile,
-        tsTasker.compile,
+        tsTasker.compile
     ),
     jsTasker.optimize,
     imagesTasker.optimize,
@@ -303,7 +371,6 @@ exports.default = parallel(
 
 exports.watch = () => {
     browserTasker.init();
-
     pugTasker.watch();
     lessTasker.watch();
     tsTasker.watch();
