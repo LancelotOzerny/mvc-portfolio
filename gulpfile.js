@@ -42,7 +42,7 @@ let pathes = new class {
     };
 
     images = {
-        src: config.inputDir + '/assets/**/*.(png|svg|jpg|jpeg)',
+        src: config.inputDir + '/assets/**/*.{png,svg,jpg,jpeg}',
         dest: config.outputDir + '/assets/',
     };
 
