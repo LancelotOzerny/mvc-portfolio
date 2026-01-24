@@ -1,12 +1,18 @@
+.absolute-padding(@value)
+{
+    left: @value;
+    right: @value;
+    top: @value;
+    bottom: @value;
+}
+
 .btn.icon
 {
     position: relative;
 
-    &.has-bg
+    &::before
     {
-        background : none;
-        border: none;
-        box-shadow: none;
+        .absolute-padding(5%);
     }
 
     &::before
@@ -14,13 +20,24 @@
         content: '';
 
         position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
 
         background-size: contain;
         background-repeat : no-repeat;
         background-position : center center;
+    }
+
+    &.has-bg
+    {
+        background : none;
+        border: none;
+        box-shadow: none;
+
+        &::before
+        {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
     }
 }
