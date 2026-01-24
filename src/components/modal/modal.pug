@@ -1,0 +1,12 @@
+mixin modal(name="form", title='Модальное окно')
+    .modal__wrapper
+        .modal(data-modal-name=name)
+            header.flex.justify-content--between.align-items--center
+                .modal__title!= title
+                button(class='btn square icon icon-close small has-bg', data-modal-close=name)
+
+            .modal__inner
+                block inner
+
+            footer
+                block control

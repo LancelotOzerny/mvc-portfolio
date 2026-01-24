@@ -48,6 +48,20 @@ block content
                     +button('', 'square icon icon-github has-bg medium btn--secondary')
                     +button('', 'square icon icon-github has-bg large btn--blue')
 
+    .page__block
+        .page__container
+            +title("Модальные окна", "page-title--animated mb-5")
+
+            +modal('test-window', 'Удаление пользователя')
+                block inner
+                    p Вы подтверждаете удаление пользователя?
+
+                block control
+                    button(class="btn btn--secondary", data-modal-close='test-window') Отменить
+                    button(class="btn btn--danger", data-modal-close='test-window') Удалить
+            div
+                button(class="btn btn--info btn--large", data-modal-open='test-window') Открыть модальное окно
+
     div.page__block.py-5
         div.page__container
             +title("Формы", "page-title--animated mb-5")
@@ -86,7 +100,3 @@ block content
                         .form__group
                             label.form__label(for="dark-message") Сообщение
                             textarea.form__textarea(id="dark-message" name="dark-message!" placeholder="Напишите что-нибудь...")
-
-    .page__block
-        .page__container
-            +title("Модальные окна", "page-title--animated mb-5")
