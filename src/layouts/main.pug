@@ -1,5 +1,9 @@
 -var title = "WEB Project"
 
+include ./../components/modal/modal
+include ./../components/button/button
+include ./../components/page-title/page-title
+
 doctype
 html
     head
@@ -11,4 +15,4 @@ html
     body.page
         block content
 
-        script(src="/assets/scripts/script.js")
+        script(type="module", src="/assets/scripts/script.js")

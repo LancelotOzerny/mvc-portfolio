@@ -1,11 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
+    "module": "es2015",
+    "target": "es5",
     "strict": true,
     "outDir": "./dist/scripts",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "moduleResolution": "node",
+
+    // Добавляем алиасы для удобного импорта
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@src/*": ["src/*"],
+    }
   },
-  "include": ["src/typescript/**/*"],
+  "include": [
+    "src/typescript/**/*",
+    "components/**/*"  // Важно: добавляем components в инклюд!
+  ],
   "exclude": ["node_modules", "dist"]
 }

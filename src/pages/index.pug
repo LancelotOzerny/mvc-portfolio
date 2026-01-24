@@ -1,8 +1,5 @@
 extends ./../layouts/main
 
-include ./../components/button/button
-include ./../components/page-title/page-title
-
 block content
 
     div.page__block.py-5
@@ -89,3 +86,7 @@ block content
                         .form__group
                             label.form__label(for="dark-message") Сообщение
                             textarea.form__textarea(id="dark-message" name="dark-message!" placeholder="Напишите что-нибудь...")
+
+    .page__block
+        .page__container
+            +title("Модальные окна", "page-title--animated mb-5")

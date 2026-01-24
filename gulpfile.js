@@ -5,6 +5,7 @@ const typescript = require('gulp-typescript')
 const browserSync = require('browser-sync').create();
 const concat = require('gulp-concat');
 const imagemin = require('gulp-imagemin');
+const replace = require('gulp-replace');
 
 
 // ==========================================
@@ -57,6 +58,7 @@ let pathes = new class {
     };
 
     typescript = {
+        follow: config.inputDir + '/**/*.ts',
         src: config.inputDir + '/typescript/compile/**/*.ts',
         components_src: config.inputDir + '/components/**/*.ts',
         dest: config.outputDir + '/assets/scripts/',
@@ -200,7 +202,6 @@ const tsTasker = new class
 {
     compile(done)
     {
-
         if (pathExists(pathes.typescript.src))
         {
             const tsProject = typescript.createProject('tsconfig.json');
@@ -208,7 +209,7 @@ const tsTasker = new class
             src(pathes.typescript.src)
                 .pipe(tsProject())
                 .js
-                .pipe(concat('script.js'))
+                .pipe(replace(/@components\//g, './components/'))
                 .pipe(dest(pathes.typescript.dest))
                 .on('end', () => {
                     if (done)
@@ -229,8 +230,8 @@ const tsTasker = new class
             src(pathes.typescript.components_src)
                 .pipe(tsProject())
                 .js
-                .pipe(concat('components.js'))
-                .pipe(dest(pathes.typescript.dest))
+                .pipe(replace(/@components\//g, './components/'))
+                .pipe(dest(pathes.typescript.dest + 'components/'))
                 .on('end', () => {
                     if (done)
                     {
