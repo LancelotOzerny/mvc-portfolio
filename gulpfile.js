@@ -57,7 +57,8 @@ let pathes = new class {
     };
 
     typescript = {
-        src: config.inputDir + '/typescript/**/*.ts',
+        src: config.inputDir + '/typescript/compile/**/*.ts',
+        components_src: config.inputDir + '/components/**/*.ts',
         dest: config.outputDir + '/assets/scripts/',
     };
 };
@@ -199,28 +200,58 @@ const tsTasker = new class
 {
     compile(done)
     {
-        if (pathExists(pathes.typescript.src) === false)
+
+        if (pathExists(pathes.typescript.src))
+        {
+            const tsProject = typescript.createProject('tsconfig.json');
+
+            src(pathes.typescript.src)
+                .pipe(tsProject())
+                .js
+                .pipe(concat('script.js'))
+                .pipe(dest(pathes.typescript.dest))
+                .on('end', () => {
+                    if (done)
+                    {
+                        done();
+                    }
+                });
+        }
+        else if (done)
         {
             done();
-            return;
         }
 
-        const tsProject = typescript.createProject('tsconfig.json');
+        if (pathExists(pathes.typescript.components_src))
+        {
+            const tsProject = typescript.createProject('tsconfig.json');
 
-        return src(pathes.typescript.src)
-            .pipe(tsProject())
-            .js
-            .pipe(dest(pathes.typescript.dest))
+            src(pathes.typescript.components_src)
+                .pipe(tsProject())
+                .js
+                .pipe(concat('components.js'))
+                .pipe(dest(pathes.typescript.dest))
+                .on('end', () => {
+                    if (done)
+                    {
+                        done();
+                    }
+                });
+        }
+        else if (done)
+        {
+             done();
+        }
     }
 
-    watch()
-    {
+    watch() {
         let followPath = pathes.typescript.follow ?? pathes.typescript.src;
         watch(followPath, series(this.compile, browserTasker.reloadPage));
+
+        // Дополнительно наблюдаем за компонентами
+        watch(pathes.typescript.components_src, series(this.compile, browserTasker.reloadPage));
     }
-}
-
-
+};
 
 
 
