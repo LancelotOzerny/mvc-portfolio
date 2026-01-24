@@ -401,10 +401,13 @@ exports.default = parallel(
     fontsTasker.optimize,
 );
 
-exports.watch = () => {
-    browserTasker.init();
-    pugTasker.watch();
-    lessTasker.watch();
-    tsTasker.watch();
-    jsTasker.watch();
-};
+exports.watch = series(
+    exports.default,
+    () => {
+        browserTasker.init();
+        pugTasker.watch();
+        lessTasker.watch();
+        tsTasker.watch();
+        jsTasker.watch();
+    }
+);
