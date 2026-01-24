@@ -2,8 +2,10 @@ node_modules/
 .idea/
 .git/
 dist/
-public_html/
 test/
+
+!public_html/assets/*.php
+!public_html/assets/.htaccess
 
 *.html
 *.css
