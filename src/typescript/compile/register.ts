@@ -1,12 +1,11 @@
 import { HttpClient } from "./http-client.js";
 import { MessageManager } from "./message-manager.js";
 
-const messageManager = new MessageManager('#form-errors');
-const registerForm = document.querySelector('form[action="/auth/register"]');
-
 function handleRegister(event: Event): void
 {
     event.preventDefault();
+
+    const messageManager = new MessageManager('#form-errors');
     messageManager.clearAll();
 
     const api = new HttpClient('https://cs224814.tw1.ru/api');
@@ -62,6 +61,8 @@ function handleRegister(event: Event): void
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const registerForm = document.querySelector('form[action="/auth/register"]');
+
     if (registerForm)
     {
         registerForm.addEventListener('submit', handleRegister);
