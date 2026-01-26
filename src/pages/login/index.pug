@@ -5,6 +5,7 @@ block content
         div.page--height-100.page__container.flex.align-items--center
             form.form(action="/auth/login" method="POST")
                 +title('Авторизация', 'page-title--small text--center mx-auto')
+                .form__group#form-errors
 
                 .form__group
                     label.form__label.form__label--required(for="email") Email
@@ -17,7 +18,7 @@ block content
                     p.form__error.is-hidden Поле обязательно для заполнения
 
                 .form__group.text--center.mt-2
-                    +button('Войти', 'btn--upper btn--large btn--info')
+                    +button('Войти', 'btn--upper btn--large btn--info', '#', 'submit')
 
                 .text--center.mt-1
                     a.text--muted(href="/register/") Нет аккаунта? Зарегистрироваться

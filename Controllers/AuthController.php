@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Models\User;
 use Modules\Main\Application;
+use Modules\Main\Authenticator;
 use Modules\Validator\EmailValidator;
 use Modules\Validator\StringValidator;
 use Repositories\UserRepository;
@@ -12,7 +13,24 @@ class AuthController
 {
     public function login(): void
     {
-        echo 'login';
+        $post = Application::getInstance()->post;
+
+        $email = $post->get('email');
+        $password = $post->get('password');
+
+        $isAuthorized = Authenticator::login($email, $password);
+
+        header('Content-Type: application/json');
+        if ($isAuthorized)
+        {
+            echo json_encode([
+                'status' => 'success',
+                'authorized' => Authenticator::isAuthorized() ? 'YES' : 'NO',
+            ]);
+            return;
+        }
+
+        echo json_encode(['errors' => ['Проверьте логин или пароль!']]);
     }
 
     public function register(): void
@@ -36,6 +54,7 @@ class AuthController
         /* VALIDATE */
         $passwordValidator = new StringValidator(
             minLength: 8,
+            maxLength: 8,
             allowedChars: array_merge(
                 range('a', 'z'),
                 range('A', 'Z'),
