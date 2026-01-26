@@ -1,8 +1,13 @@
 import { HttpClient } from "./http-client.js";
+import { MessageManager } from "./message-manager.js";
+
+const messageManager = new MessageManager('#form-errors');
+const registerForm = document.querySelector('form[action="/auth/register"]');
 
 function handleRegister(event: Event): void
 {
     event.preventDefault();
+    messageManager.clearAll();
 
     const api = new HttpClient('https://cs224814.tw1.ru/api');
 
@@ -12,13 +17,13 @@ function handleRegister(event: Event): void
 
     if (!email || !password || !passwordConfirm)
     {
-        alert('Заполните все поля');
+        messageManager.addWarning('Заполните все поля!')
         return;
     }
 
     if (password !== passwordConfirm)
     {
-        alert('Пароли не совпадают');
+        messageManager.addDanger('Пароли не совпадают!')
         return;
     }
 
@@ -40,25 +45,23 @@ function handleRegister(event: Event): void
             {
                 for (let i = 0; i < response.errors.length; ++i)
                 {
-                    console.log(response.errors[i]);
+                    messageManager.addDanger(response.errors[i]);
                 }
 
                 return;
             }
 
-            console.log('Ошибка при создании нового пользователя. Повторите попытку позже или обратитесь в тех поддержку!');
+            messageManager.addDanger('Ошибка при создании нового пользователя. Повторите попытку позже или обратитесь в тех поддержку!');
         },
         (status, error) =>
         {
+            messageManager.addDanger(`Ошибка регистрации. Повторите попытку позже!`)
             console.error('Ошибка регистрации:', status, error);
-            alert(`Ошибка регистрации: ${error}`);
         }
     );
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const registerForm = document.querySelector('form[action="/auth/register"]');
-
     if (registerForm)
     {
         registerForm.addEventListener('submit', handleRegister);

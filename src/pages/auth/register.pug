@@ -5,6 +5,7 @@ block content
         div.page--height-100.page__container.flex.align-items--center
             form.form(action="/auth/register" method="POST")
                 +title('Регистрация', 'page-title--small text--center mx-auto')
+                .form__group#form-errors
 
                 .form__group
                     label.form__label.form__label--required(for="email") Email

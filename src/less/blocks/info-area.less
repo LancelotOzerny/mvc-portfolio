@@ -1,0 +1,32 @@
+.info-area
+{
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: .75rem;
+    border-radius: 2px;
+    box-shadow: 0 0 3px #22222266;
+
+    &--danger
+    {
+        background-color : @theme-danger-bg + #aaa;
+        color : @theme-danger-bg - #555;
+    }
+
+    &--warning
+    {
+        background-color : @theme-warning-bg + #aaa;
+        color : @theme-warning-bg - #555;
+    }
+
+    &--success
+    {
+        background-color : @theme-success-bg + #666;
+        color : @theme-success-bg - #555;
+    }
+
+    &--info
+    {
+        background-color : @theme-info-bg + #888;
+        color : @theme-info-bg - #555;
+    }
+}
