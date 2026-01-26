@@ -1,5 +1,5 @@
 <?php
-namespace Controllers;
+namespace Controllers\Api;
 
 use Models\User;
 use Modules\Orm\Repository;
