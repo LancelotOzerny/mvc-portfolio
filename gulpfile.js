@@ -402,7 +402,6 @@ exports.default = parallel(
 );
 
 exports.watch = series(
-    exports.default,
     () => {
         browserTasker.init();
         pugTasker.watch();

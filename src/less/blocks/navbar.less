@@ -1,0 +1,35 @@
+.navbar
+{
+    display : inline-block;
+
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    &__link
+    {
+        display : inline-block;
+        padding : 12.5px 25px;
+        cursor  : pointer;
+        transition: .2s;
+    }
+
+    &.anim--blue-bg > &__link
+    {
+        &.active, &:hover
+        {
+            background-color : #519DFF;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #EEEEEE;
+        }
+    }
+}
+
+.h-navbar
+{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}

@@ -5,6 +5,10 @@
 @btn-padding-medium: 10px 20px;
 @btn-padding-large: 20px 30px;
 
+@btn-padding-square-small: 15px;
+@btn-padding-square-medium: 25px;
+@btn-padding-square-large: 30px;
+
 @btn-font-size-small: 0.875rem;
 @btn-font-size-medium: 1rem;
 @btn-font-size-large: 1.125rem;
@@ -42,26 +46,6 @@
     outline         : none;
 }
 
-// Модификаторы формы
-.btn
-{
-    &.rounded
-    {
-        border-radius : @btn-border-radius-rounded;
-    }
-
-    &.circle
-    {
-        border-radius : @btn-border-radius-circle;
-    }
-
-    &.square
-    {
-        aspect-ratio: 1 / 1;
-        border-radius : @btn-border-radius-square;
-    }
-}
-
 // Модификаторы размера
 .btn
 {
@@ -81,6 +65,41 @@
     {
         padding   : @btn-padding-large;
         font-size : @btn-font-size-large;
+    }
+}
+
+// Модификаторы формы
+.btn
+{
+    &.rounded
+    {
+        border-radius : @btn-border-radius-rounded;
+    }
+
+    &.circle
+    {
+        border-radius : @btn-border-radius-circle;
+    }
+
+    &.square
+    {
+        aspect-ratio: 1 / 1;
+        border-radius : @btn-border-radius-square;
+
+        &.small
+        {
+            padding   : @btn-padding-square-small;
+        }
+
+        &, &.medium
+        {
+            padding   : @btn-padding-square-medium;
+        }
+
+        &.large
+        {
+            padding   : @btn-padding-square-large;
+        }
     }
 }
 

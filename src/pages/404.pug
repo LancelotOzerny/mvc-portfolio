@@ -1,0 +1,13 @@
+extends ./../layouts/main
+
+block content
+
+    div.page__block.page--height-100.flex.align-items--center
+        div.page__container
+            +title("Страница не найдена", "page-title--large")
+
+            p.pt-5 Уважаемый пользователь!
+            p К сожалению, страница на которую вы перешли не существует.
+            p Попробуйте открыть страницу из главного меню или перейти на стартовую страницу, нажав на кнопку ниже.
+
+            +button('На стартовую страницу', 'medium btn--info large mt-5', '/')

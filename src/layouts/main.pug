@@ -13,6 +13,20 @@ html
         link(rel="stylesheet" href="/assets/css/main.css")
 
     body.page
+        .page__block.main-navigation__wrapper
+            .page__container.main-navigation
+                nav.navbar.h-navbar.anim--blue-bg
+                    a.navbar__link.active Обо мне
+                    a.navbar__link Навыки
+                    a.navbar__link Образование
+                    a.navbar__link Портфолио
+
+                .networks-line
+                    a.networks-line__item.btn.square.icon.icon-github.has-bg
+                    a.networks-line__item.btn.square.icon.icon-vk.has-bg
+                    a.networks-line__item.btn.square.icon.icon-telegram.has-bg
+                    a.networks-line__item.btn.square.icon.icon-gmail.has-bg
+
         block content
 
         script(type="module", src="/assets/scripts/script.js")
