@@ -1,9 +1,9 @@
-extends ./../../layouts/main
+extends ./../../layouts/auth
 
 block content
     div.page__block
         div.page--height-100.page__container.flex.align-items--center
-            form.form(action="/auth/register" method="POST")
+            form.form.auth-form(action="/auth/register" method="POST")
                 +title('Регистрация', 'page-title--small text--center mx-auto')
                 .form__group#form-errors
 

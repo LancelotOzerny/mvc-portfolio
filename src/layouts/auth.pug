@@ -1,0 +1,17 @@
+-var title = "WEB Project"
+
+include ./../components/modal/modal
+include ./../components/button/button
+include ./../components/page-title/page-title
+
+doctype
+html
+    head
+        title #{title}
+
+        link(rel="stylesheet" href="/assets/css/components.css")
+        link(rel="stylesheet" href="/assets/css/main.css")
+
+    body.page
+        block content
+        script(type="module", src="/assets/scripts/script.js")
