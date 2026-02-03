@@ -33,8 +33,10 @@ export class ModalWindow
         buttons.forEach(btn => btn.addEventListener('click', this.open.bind(this)));
     }
 
-    open(): void
+    open(event: any): void
     {
+        event.preventDefault();
+
         if (this.modal === null)
         {
             return;

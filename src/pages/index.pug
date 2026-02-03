@@ -49,19 +49,19 @@ block content
 
             .projects-carousel
                 .project-list
-                    a.project(href="#", data-index='1')
+                    a.project(href="#", data-index='1', data-modal-open="ProjectInfoModal")
                         p.project__title Unity Developer Toolkit
                         img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
 
-                    a.project(href="#", data-index='2')
+                    a.project(href="#", data-index='2', data-modal-open="ProjectInfoModal")
                         p.project__title Unity Developer Toolkit
                         img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
 
-                    a.project(href="#", data-index='3')
+                    a.project(href="#", data-index='3', data-modal-open="ProjectInfoModal")
                         p.project__title Unity Developer Toolkit
                         img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
 
-                    a.project(href="#", data-index='4')
+                    a.project(href="#", data-index='4', data-modal-open="ProjectInfoModal")
                         p.project__title Unity Developer Toolkit
                         img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
 
@@ -74,11 +74,29 @@ block content
                     button.carousel-arrow.carousel-arrow--left(data-target='btn-prev', aria-label='Предыдущий') ❮
                     button.carousel-arrow.carousel-arrow--right(data-target='btn-next', aria-label='Следующий') ❯
 
+                +modal('ProjectInfoModal', 'Unity Developer Toolkit')
+                    block inner
+                        .tags
+                            .tag Unity
+                            .tag C#
+                            .tag Git
+
+                        p.mt-5
+                            span.text--weight-4 Unity Developer Toolkit (UDT)
+                            | - это набор инструментов для Unity разработчика который поможет
+                            | ускорить процесс разработки через набор готовых скриптов, префабов и спрайтов. Теперь можно в пару нажатий
+                            | обрабатывать столкновения, создавать счетчик, кошелек персонажа и другое.
+
+                    block control
+                        button(class="btn btn--secondary") Git
+                        button(class="btn btn--info") Demo
 
 
     .page__block.py-5
         .page__container
-            +title('Сертификаты', 'text--weight-2 py-5')
+            +title('Дипломы и сертификаты', 'text--weight-2 py-5')
+
+
 
     .page__block.py-5
         .page__container
