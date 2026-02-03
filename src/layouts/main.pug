@@ -34,17 +34,19 @@ html
 
         .page__block.theme--dark.py-5
             .page__container
-                +title('Контакты', 'text--weight-2 py-5 text--light')
+                +title('Контакты', 'text--weight-2 text--light page-title--animated my-5')
 
                 div.flex.justify-content--between.align-items--center
                     .info
                         table
                             tr
                                 td(width="100px").text--weight-4 Email:
-                                td lancelot.ozernuy@gmail.com
+                                td
+                                    a(href="mailto:lancelot.ozernuy@gmail.com") lancelot.ozernuy@gmail.com
                             tr
                                 td.text--weight-4 Телефон:
-                                td 8-920-520-18-31
+                                td
+                                    a(href="tel:+79205201831") 8-920-520-18-31
 
                     .networks-line.gap-5
                         a.networks-line__item.btn.square.large.icon.icon-github.has-bg

@@ -16,7 +16,8 @@ block content
 
     .page__block.py-5
         .page__container
-            +title('Немного о себе', 'text--weight-2 text--right py-5')
+            div.text--right.my-5
+                +title('Немного о себе', 'text--weight-2 page-title--animated')
 
             div.about-me
                 img(class="about-me__image", src="/assets/images/goblin.png")
@@ -40,7 +41,8 @@ block content
 
     .page__block.py-5
         .page__container
-            +title('Лучшие проекты', 'text--weight-2 text--right py-5')
+            div.my-5
+                +title('Лучшие проекты', 'text--weight-2 page-title--animated')
 
 
             .projects-carousel
@@ -89,7 +91,8 @@ block content
 
     .page__block.py-5
         .page__container
-            +title('Форма обратной связи', 'text--weight-2 text--center py-5')
+            div.text--center.my-5
+                +title('Форма обратной связи', 'text--weight-2 text--center page-title--animated mx-auto')
 
             form.form(action="#" method="POST").feedback-form
                 .form__group--flex
