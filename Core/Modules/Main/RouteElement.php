@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Api;
+namespace Modules\Main;
 
 readonly class RouteElement
 {

@@ -1,5 +1,7 @@
 <?php
-namespace Modules\Api;
+namespace Modules\Main;
+
+use Controllers\ErrorsController;
 
 class Router
 {
@@ -13,9 +15,13 @@ class Router
     public static function run() : void
     {
         $requestMethod = $_SERVER['REQUEST_METHOD'];
-        $requestUri = $_SERVER['REQUEST_URI'];
+        $requestUri = $path = $_SERVER['REQUEST_URI'];
 
-        $path = self::getNormalizedPath($requestUri);
+        /* Xammp error of / page */
+        if ($requestUri !== '/')
+        {
+            $path = self::getNormalizedPath($requestUri);
+        }
 
         foreach (self::$routes as $route)
         {
@@ -26,6 +32,15 @@ class Router
                 call_user_func_array([$controller, $route->action], $params);
                 return;
             }
+        }
+
+        if (class_exists(ErrorsController::class))
+        {
+            (new ErrorsController())->page404();
+        }
+        else
+        {
+            echo 'Page 404!';
         }
     }
 

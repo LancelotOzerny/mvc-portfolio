@@ -5,11 +5,12 @@ namespace Controllers\Api;
 use Models\User;
 use Modules\Main\Application;
 use Modules\Main\Authenticator;
+use Modules\Main\BaseController;
 use Modules\Validator\EmailValidator;
 use Modules\Validator\StringValidator;
 use Repositories\UserRepository;
 
-class AuthController
+class AuthController extends BaseController
 {
     public function login(): void
     {

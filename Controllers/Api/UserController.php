@@ -2,9 +2,10 @@
 namespace Controllers\Api;
 
 use Models\User;
+use Modules\Main\BaseController;
 use Modules\Orm\Repository;
 
-class UserController
+class UserController extends BaseController
 {
     public function getList()
     {
