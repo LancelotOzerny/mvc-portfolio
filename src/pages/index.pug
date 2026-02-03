@@ -82,4 +82,22 @@ block content
 
     .page__block.py-5
         .page__container
-            +title('Связаться', 'text--weight-2 text--right py-5')
+            +title('Форма обратной связи', 'text--weight-2 text--center py-5')
+
+            form.form(action="#" method="POST").feedback-form
+                .form__group--flex
+                    .form__group
+                        label.form__label.form__label--required(for="name") Имя
+                        input.form__input(type="text" id="name" name="name" required)
+                        p.form__error.is-visible Поле обязательно для заполнения
+
+                    .form__group
+                        label.form__label.form__label--required(for="email") Email
+                        input.form__input(type="email" id="email" name="email" required)
+
+                .form__group
+                    label.form__label(for="message") Сообщение
+                    textarea.form__textarea(id="message" name="message" placeholder="Напишите что-нибудь...")
+
+                .form__group
+                    +button('Отправить', 'btn--info large', '#', 'submit')
