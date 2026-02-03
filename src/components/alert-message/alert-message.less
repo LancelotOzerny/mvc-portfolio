@@ -1,0 +1,62 @@
+@background--success: rgba(182, 234, 143, 0.95);
+@background--warning: rgba(253, 208, 144, 0.95);
+@background--danger: rgba(223, 125, 125, 0.95);
+@background--info: rgba(129, 201, 230, 0.95);
+
+.alert-messages-container
+{
+    position: fixed;
+    width: 450px;
+    display: inline-grid;
+    grid-row-gap: 10px;
+    height: fit-content;
+    right: 25px;
+    top: 25px;
+}
+
+.alert-message
+{
+    width         : inherit;
+    text-align    : center;
+    position      : relative;
+    height        : 0;
+    opacity       : 0;
+    padding       : -25px -50px;
+    border-radius : 2px;
+    transition    : .2s;
+    font-size     : 16px;
+
+    &.success
+    {
+        background-color : @background--success;
+    }
+
+    &.warning
+    {
+        background-color : @background--warning;
+    }
+
+    &.danger
+    {
+        background-color : @background--danger;
+    }
+
+    &.info
+    {
+        background-color : @background--info;
+    }
+
+    &.active
+    {
+        height  : fit-content;
+        opacity : 1;
+        padding : 25px 50px;
+    }
+
+    & > button[data-alert-close]
+    {
+        position : absolute;
+        right    : 5px;
+        top      : 5px;
+    }
+}
