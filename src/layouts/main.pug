@@ -15,6 +15,9 @@ html
     body.page
         .page__block.main-navigation__wrapper
             .page__container.main-navigation
+                a.main-navigation__logo
+                    img(src="/assets/images/logo.png")
+
                 nav.navbar.h-navbar.anim--blue-bg
                     a.navbar__link.active Обо мне
                     a.navbar__link Навыки
@@ -26,16 +29,6 @@ html
                     a.networks-line__item.btn.square.icon.icon-vk.has-bg
                     a.networks-line__item.btn.square.icon.icon-telegram.has-bg
                     a.networks-line__item.btn.square.icon.icon-gmail.has-bg
-
-        div.page__block.main-header
-            div.page__container.main-header__inner
-                img(class="main-header__image", src="/assets/images/profile.png", alt="Profile image")
-
-                div.main-header__titles
-                    +title("Максим Александрович Беляков", "page-title--large text--weight-3")
-                    +title("WEB-разработчик / Дизайнер / Gamedev developer", 'page-title--small text--weight-2')
-
-                p "Каждая работа — это шаг на пути самосовершенствования"
 
         block content
 

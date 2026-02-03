@@ -1,4 +1,85 @@
 extends ./../layouts/main
 
 block content
+    .page__block.main-header.theme--blue.py-10
+        .page__container.main-header__inner
+            .main-header__info
+                h1.main-header__name Максим Александрович Беляков
+                p.main-header__jobname WEB-программист, Unity разработчик
+                p.main-header__slogan Каждая задача - это новый вызов на моем пути
 
+                div.main-header__control.mt-5
+                    +button('Проекты', 'btn--white large text--upper rounded')
+                    +button('Резюме', 'btn--white large text--upper rounded')
+
+            img(class="main-header__image", src="/assets/images/profile.png", alt="Profile image")
+
+    .page__block.py-5
+        .page__container
+            +title('Немного о себе', 'text--weight-2 text--right py-5')
+
+            div.about-me
+                img(class="about-me__image", src="/assets/images/goblin.png")
+
+                div.about-me__text
+                    p
+                        | Меня зовут Максим Александрович Беляков.
+                        | Я программист из Липецкой области, в направлении WEB-разработки.
+                        | Каждый день я изучаю что-то новое и совершенствую свои навыки, пишу новые проекты и совершенствую старые.
+
+                    p.pt-2
+                        | В работе мне помогают мои профессиональные хобби - разработка игр на C# и Unity, дизайн сайтов и видеоигры.
+                        | В разработке игр я каждый день узнаю что-либо новое, к примеру, паттерны проектирования или какой-либо новый алгоритм.
+                        | Дизайн помогает мне делать красивые сайты, верстать великолепные сайты спонтанно.
+                        | Времяпрепровождение за компьютерными играми позволяет не только расслабиться, но и взглянуть на игру с точки
+                        | зрения программиста - "А как персонажи взаиодействуют?", "Как работает внутриигровая торговля" или же "Почему мне не удается пройти этот уровень...".
+                        | Играя в игры очень часто хочется что-то сломать, чтобы получить игровое преимущество. Так я и научился тестированию.
+
+                    p.pt-2
+                        | Самое главное для меня - это непрерывное саморазвитие, непрерывное следование за мечтой и всегда иметь перед собой четко поставленную цель.
+
+    .page__block.py-5
+        .page__container
+            +title('Список навыков', 'text--weight-2 py-5')
+
+    .page__block.py-5
+        .page__container
+            +title('Лучшие проекты', 'text--weight-2 text--right py-5')
+
+
+            .projects-carousel
+                .project-list
+                    a.project(href="#", data-index='1')
+                        p.project__title Unity Developer Toolkit
+                        img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
+
+                    a.project(href="#", data-index='2')
+                        p.project__title Unity Developer Toolkit
+                        img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
+
+                    a.project(href="#", data-index='3')
+                        p.project__title Unity Developer Toolkit
+                        img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
+
+                    a.project(href="#", data-index='4')
+                        p.project__title Unity Developer Toolkit
+                        img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
+
+                .carousel-indicators#indicators
+                    button.indicator(data-index=1, aria-label=`Проект 1`)
+                    button.indicator(data-index=2, aria-label=`Проект 2`)
+                    button.indicator(data-index=3, aria-label=`Проект 3`)
+                    button.indicator(data-index=4, aria-label=`Проект 4`)
+
+                    button.carousel-arrow.carousel-arrow--left(data-target='btn-prev', aria-label='Предыдущий') ❮
+                    button.carousel-arrow.carousel-arrow--right(data-target='btn-next', aria-label='Следующий') ❯
+
+
+
+    .page__block.py-5
+        .page__container
+            +title('Сертификаты', 'text--weight-2 py-5')
+
+    .page__block.py-5
+        .page__container
+            +title('Связаться', 'text--weight-2 text--right py-5')

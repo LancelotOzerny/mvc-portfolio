@@ -1,0 +1,73 @@
+// Переменные
+@bg-white:        #ffffff;
+@shadow:           0 0 5px fade(#222, 60%);
+@border-radius:     2px;
+@padding:          16px;
+@margin-right:     12px;
+@title-color:      #333;
+@title-size:      16px;
+@indicator-size:   10px;
+@indicator-active: #007bff;
+@transition:       0.3s ease;
+
+.project-list
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+}
+
+.project
+{
+    box-shadow: 0 0 2px #222;
+    padding: 25px;
+    display: grid;
+    gap: 25px;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    transition: .25s;
+
+    &__title
+    {
+        text-transform: uppercase;
+        font-size: 1.15rem;
+    }
+
+    img
+    {
+        display: inline-block;
+        width : 300px;
+        margin: 0 auto 8px auto;
+        object-fit: contain;
+    }
+
+    &:hover
+    {
+        transform: scale(1.15);
+    }
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: fade(#000, 20%);
+    border: none;
+    color: white;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px fade(#007bff, 50%);
+    }
+}
+
+.carousel-arrow--left  { left: 10px;  }
+.carousel-arrow--right { right: 10px; }
