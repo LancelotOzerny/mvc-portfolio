@@ -3,14 +3,13 @@ extends ./../layouts/main
 block content
     .page__block.main-header.theme--blue.py-10
         .page__container.main-header__inner
-            .main-header__info
-                h1.main-header__name Максим Александрович Беляков
-                p.main-header__jobname WEB-программист, Unity разработчик
-                p.main-header__slogan Каждая задача - это новый вызов на моем пути
+            h1.main-header__name Максим Александрович Беляков
+            p.main-header__jobname WEB-программист, Unity разработчик
+            p.main-header__slogan Каждая задача - это новый вызов на моем пути
 
-                div.main-header__control.mt-5
-                    +button('Проекты', 'btn--white large text--upper rounded')
-                    +button('Резюме', 'btn--white large text--upper rounded')
+            div.main-header__control.mt-5
+                +button('Проекты', 'btn--white large text--upper rounded')
+                +button('Резюме', 'btn--white large text--upper rounded')
 
             img(class="main-header__image", src="/assets/images/profile.png", alt="Profile image")
 

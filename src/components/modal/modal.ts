@@ -10,7 +10,6 @@ export class ModalWindow
         this.setOpenButtons();
         this.setCloseButtons();
     }
-
     setStyles(): void
     {
         if (!this.modal)
@@ -18,7 +17,7 @@ export class ModalWindow
             return;
         }
 
-        this.modal.style.left = -(this.modal.clientWidth + 10) + 'px';
+        this.modal.style.left = '-105%';
     }
 
     setCloseButtons(): void
@@ -63,6 +62,6 @@ export class ModalWindow
             this.modal.parentElement?.classList.remove('active');
         }
 
-        this.modal.style.left = -(this.modal.clientWidth + 10) + 'px';
+        this.modal.style.left = '-105%';
     }
 }
