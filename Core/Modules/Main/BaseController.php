@@ -6,8 +6,10 @@ class BaseController
     protected function render(string $view, array $data = [])
     {
         $className = basename(static::class);
-        $controllerName = preg_replace('#^.*[\\\/]([^\\\/]+)Controller$#', '$1', $className);
+        $withoutPrefix = preg_replace('~^Controllers\\\\~', '', $className);
+        $controllerName = preg_replace('~Controller$~', '', $withoutPrefix);
         $viewPath = Application::getInstance()->root . '/Views/' . $controllerName . '/' . $view . '.php';
+        $viewPath = str_replace('\\', '/', $viewPath);
 
         if (file_exists($viewPath))
         {
