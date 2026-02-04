@@ -35,23 +35,6 @@ class Authenticator
         session_destroy();
     }
 
-    public static function getCurrentUser(): Entity | null
-    {
-        if (!self::isAuthorized())
-        {
-            return null;
-        }
-
-        $userId = $_SESSION['user_id'] ?? null;
-        if (!$userId)
-        {
-            return null;
-        }
-
-        $userRepo = new Repository(new User());
-        return $userRepo->findById($userId);
-    }
-
     public static function login($email, $password) : bool
     {
         $errors = [];
@@ -67,7 +50,12 @@ class Authenticator
                 }
 
                 $_SESSION['user_id'] = $user->id;
-                $_SESSION['is_authorized'] = true;
+                $_SESSION['user'] = [
+                    'id' => $user->id,
+                    'email' => $user->email,
+                    'right_name' => $user->right_name,
+                    'right_level' => $user->right_level
+                ];
 
                 return true;
             }
@@ -83,6 +71,53 @@ class Authenticator
             return false;
         }
 
-        return isset($_SESSION['is_authorized']);
+        return isset($_SESSION['user_id']);
+    }
+
+    public static function isAdmin() : bool
+    {
+        return !self::isAuthorized() ?: $_SESSION['user']['right_level'] >= 100;
+    }
+
+    public static function getCurrentUser() : ?Entity
+    {
+        if (!self::isAuthorized())
+        {
+            return null;
+        }
+
+        if (isset($_SESSION['user']))
+        {
+            $userData = $_SESSION['user'];
+            $user = new User();
+            $user->id = $userData['id'];
+            $user->email = $userData['email'];
+            $user->right_name = $userData['right_name'];
+            $user->right_level = $userData['right_level'];
+
+            return $user;
+        }
+
+        $userId = $_SESSION['user_id'] ?? null;
+        if (!$userId)
+        {
+            return null;
+        }
+
+        $userRepo = new UserRepository(new User());
+        $user = $userRepo->findById($userId);
+
+        if ($user)
+        {
+            $_SESSION['user'] =
+            [
+                'id' => $user->id,
+                'email' => $user->email,
+                'right_name' => $user->right_name,
+                'right_level' => $user->right_level
+            ];
+        }
+
+        return $user;
     }
 }

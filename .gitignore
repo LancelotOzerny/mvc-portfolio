@@ -8,7 +8,7 @@ public_html/
 !public_html/favicon.ico
 !*.htaccess
 !*.php
-
+*.config.php
 
 *.html
 *.css
