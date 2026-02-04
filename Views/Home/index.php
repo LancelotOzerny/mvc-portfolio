@@ -1,69 +1,100 @@
-<div class="page__block page__block--spaced theme--blue" id="anchor-top">
+<div class="page__block main-header theme--blue py-10">
+    <div class="page__container main-header__inner">
+        <h1 class="main-header__name">Максим Александрович Беляков</h1>
+        <p class="main-header__jobname">WEB-программист, Unity разработчик</p>
+        <p class="main-header__slogan">Каждая задача - это новый вызов на моем пути</p>
+        <div class="main-header__control mt-5">
+            <a class="btn btn--white large text--upper rounded" href="#anchor-projects" type="button" aria-label="Проекты">Проекты</a>
+            <button class="btn btn--white large text--upper rounded" type="button" aria-label="Резюме">Резюме</button>
+        </div><img class="main-header__image" src="/assets/images/profile.png" alt="Profile image">
+    </div>
+</div>
+
+<div class="page__block py-5">
     <div class="page__container">
-        <header class="main-header">
-            <h1 class="main-header__title">Беляков Максим Александрович</h1>
-            <div class="main-header__middle-wrapper">
-                <p class="main-header__jobname">Web разработчик / Дизайнер</p>
-                <p class="main-header__slogan">"Каждая работа — это шаг на пути самосовершенствования"</p>
+        <div class="text--right my-5">
+            <p class="page-title text--weight-2 page-title--animated" href="#">Немного о себе</p>
+        </div>
+        <div class="about-me"><img class="about-me__image" src="/assets/images/goblin.png">
+            <div class="about-me__text">
+                <p>
+                    Меня зовут Максим Александрович Беляков.
+                    Я программист из Липецкой области, в направлении WEB-разработки.
+                    Каждый день я изучаю что-то новое и совершенствую свои навыки, пишу новые проекты и совершенствую старые.
+                </p>
+                <p class="pt-2">
+                    В работе мне помогают мои профессиональные хобби - разработка игр на C# и Unity, дизайн сайтов и видеоигры.
+                    В разработке игр я каждый день узнаю что-либо новое, к примеру, паттерны проектирования или какой-либо новый алгоритм.
+                    Дизайн помогает мне делать красивые сайты, верстать великолепные сайты спонтанно.
+                    Времяпрепровождение за компьютерными играми позволяет не только расслабиться, но и взглянуть на игру с точки
+                    зрения программиста - "А как персонажи взаиодействуют?", "Как работает внутриигровая торговля" или же "Почему мне не удается пройти этот уровень...".
+                    Играя в игры очень часто хочется что-то сломать, чтобы получить игровое преимущество. Так я и научился тестированию.
+                </p>
+                <p class="pt-2">Самое главное для меня - это непрерывное саморазвитие, непрерывное следование за мечтой и всегда иметь перед собой четко поставленную цель.</p>
             </div>
-            <div class="main-header__buttons">
-                <a class="btn btn--white btn--circle btn--medium" href="/uploads/docks/pdf/resume.pdf">Посмотреть CV</a>
-                <a class="btn btn--white btn--circle btn--medium" href="#anchor-portfolio">Мои проекты</a>
+        </div>
+    </div>
+</div>
+<div id="anchor-projects" class="page__block py-5">
+    <div class="page__container">
+        <div class="my-5">
+            <p class="page-title text--weight-2 page-title--animated">Лучшие проекты</p>
+        </div>
+        <div class="project-list"><a class="project" href="#" data-index="1" data-modal-open="ProjectInfoModal">
+                <p class="project__title">Unity Developer Toolkit</p><img src="/assets/images/project_icon.png" alt="/assets/images/project_icon.png"></a><a class="project" href="#" data-index="2" data-modal-open="ProjectInfoModal">
+                <p class="project__title">Unity Developer Toolkit</p><img src="/assets/images/project_icon.png" alt="/assets/images/project_icon.png"></a><a class="project" href="#" data-index="3" data-modal-open="ProjectInfoModal">
+                <p class="project__title">Unity Developer Toolkit</p><img src="/assets/images/project_icon.png" alt="/assets/images/project_icon.png"></a><a class="project" href="#" data-index="4" data-modal-open="ProjectInfoModal">
+                <p class="project__title">Unity Developer Toolkit</p><img src="/assets/images/project_icon.png" alt="/assets/images/project_icon.png"></a>
+            <div class="modal__wrapper">
+                <div class="modal" data-modal-name="ProjectInfoModal">
+                    <header class="flex justify-content--between align-items--center">
+                        <div class="modal__title">Unity Developer Toolkit</div>
+                        <button class="btn square icon icon-close small has-bg" data-modal-close="ProjectInfoModal"></button>
+                    </header>
+                    <div class="modal__inner">
+                        <div class="tags">
+                            <div class="tag">Unity</div>
+                            <div class="tag">C#</div>
+                            <div class="tag">Git</div>
+                        </div>
+                        <p class="mt-5"><span class="text--weight-4">Unity Developer Toolkit (UDT)</span>- это набор инструментов для Unity разработчика который поможет
+                            ускорить процесс разработки через набор готовых скриптов, префабов и спрайтов. Теперь можно в пару нажатий
+                            обрабатывать столкновения, создавать счетчик, кошелек персонажа и другое.
+                        </p>
+                    </div>
+                    <footer>
+                        <button class="btn btn--secondary">Git</button>
+                        <button class="btn btn--info">Demo</button>
+                    </footer>
+                </div>
             </div>
-            <div class="main-header__profile">
-                <img src="/assets/images/profile.png" />
+        </div>
+    </div>
+</div>
+<div class="page__block py-5">
+    <div class="page__container">
+        <div class="text--center my-5">
+            <p class="page-title text--weight-2 text--center page-title--animated mx-auto" href="#">Форма обратной связи</p>
+        </div>
+        <form class="form feedback-form" action="#" method="POST">
+            <div class="form__group--flex">
+                <div class="form__group">
+                    <label class="form__label form__label--required" for="name">Имя</label>
+                    <input class="form__input" type="text" id="name" name="name" required>
+                    <p class="form__error is-visible">Поле обязательно для заполнения</p>
+                </div>
+                <div class="form__group">
+                    <label class="form__label form__label--required" for="email">Email</label>
+                    <input class="form__input" type="email" id="email" name="email" required>
+                </div>
             </div>
-        </header>
-    </div>
-</div>
-<div class="page__block page__block--spaced" id="anchor-about-me">
-    <div class="page__container">
-        <div class="section-title__wrapper">
-            <p class="section-title blue hashtag">О себе</p>
-        </div>
-        <div class="text-block">
-            <p>Меня зовут Максим Александрович Беляков — программист из Липецка, где древние стены помнят ещё диалаповый интернет и медленные компиляторы.</p>
-
-            <p>Моя основная стезя — программирование. Специализируюсь на двух направлениях:</p>
-            <ul>
-                <li><strong>WEB‑разработка</strong> — создаю порталы, через которые люди путешествуют по виртуальным пространствам;</li>
-                <li><strong>GameDev</strong> — оживляю миры, где герои сражаются с монстрами и ищут сокровища.</li>
-            </ul>
-
-            <p>Также осваиваю смежные навыки:</p>
-            <ul>
-                <li>дизайн — превращаю магические руны в удобный UX/UI;</li>
-                <li>цифровую иллюстрацию — переношу художественные идеи в пиксельный мир.</li>
-            </ul>
-
-            <p>В планах — покорить новые горизонты: научиться создавать качественные 3D‑ассеты и выстроить устойчивую финансовую систему по заветам «Самого богатого человека в Вавилоне».</p>
-
-            <p>Я воспринимаю свой путь как бесконечное приключение: каждый день — новый квест. Сегодня чиню баги,
-                завтра добавляю долгожданные фичи, а в будущем мечтаю создать игру, которую полюбят даже гоблины.
-                Шаг за шагом собираю опыт и крафчу решения.</p>
-
-            <p>Верю, что однажды достигну максимального уровня.</p>
-        </div>
-    </div>
-</div>
-<div class="page__block page__block--spaced" id="anchor-skills">
-    <div class="page__container">
-        <div class="section-title__wrapper">
-            <p class="section-title right blue hashtag">Навыки и стек</p>
-        </div>
-    </div>
-</div>
-<div class="page__block page__block--spaced" id="anchor-certificates">
-    <div class="page__container">
-        <div class="section-title__wrapper">
-            <p class="section-title blue hashtag">Дипломы и сертификаты</p>
-        </div>
-    </div>
-</div>
-<div class="page__block page__block--spaced" id="anchor-portfolio">
-    <div class="page__container">
-        <div class="section-title__wrapper">
-            <p class="section-title right blue hashtag">Скромное портфолио</p>
-        </div>
+            <div class="form__group">
+                <label class="form__label" for="message">Сообщение</label>
+                <textarea class="form__textarea" id="message" name="message" placeholder="Напишите что-нибудь..."></textarea>
+            </div>
+            <div class="form__group">
+                <button class="btn btn--info large" type="submit" aria-label="Отправить">Отправить</button>
+            </div>
+        </form>
     </div>
 </div>

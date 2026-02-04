@@ -15,4 +15,22 @@ class HomeController extends BaseController
         $this->render('index');
         Template::getInstance()->includeFooter();
     }
+
+    public function login(): void
+    {
+        Template::getInstance()->setParam('title', 'Авторизация');
+
+        Template::getInstance()->includeHeader();
+        $this->render('login');
+        Template::getInstance()->includeFooter();
+    }
+
+    public function register()
+    {
+        Template::getInstance()->setParam('title', 'Регистрация');
+
+        Template::getInstance()->includeHeader();
+        $this->render('register');
+        Template::getInstance()->includeFooter();
+    }
 }

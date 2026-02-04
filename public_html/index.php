@@ -10,5 +10,7 @@ Router::add('POST', '/api/auth/register', AuthController::class, 'register');
 Router::add('POST', '/api/auth/login', AuthController::class, 'login');
 
 Router::add('GET', '/', HomeController::class, 'index');
+Router::add('GET', '/login', HomeController::class, 'login');
+Router::add('GET', '/register', HomeController::class, 'register');
 
 Router::run();

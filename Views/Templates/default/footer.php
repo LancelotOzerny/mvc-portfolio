@@ -1,39 +1,25 @@
-<footer class="page__block page__block--spaced theme--dark">
-    <div class="page__container">
-        <div class="main-footer">
+        <div class="page__block theme--dark py-5">
+        <div class="page__container">
             <div>
-                <div class="section-title__wrapper">
-                    <p class="section-title section-title blue small hashtag">Контакты</p>
-                </div>
-                <div class="networks-line">
-                    <a class="networks-line__item" href="#">
-                        <img class="networks-line__icon" src="/assets/icons/github.svg">
-                    </a>
-                    <a class="networks-line__item" href="#">
-                        <img class="networks-line__icon" src="/assets/icons/gmail.svg">
-                    </a>
-                    <a class="networks-line__item" href="#">
-                        <img class="networks-line__icon" src="/assets/icons/telegram.svg">
-                    </a><a class="networks-line__item" href="#">
-                        <img class="networks-line__icon" src="/assets/icons/vk.svg">
-                    </a>
-                </div>
+                <p class="page-title text--weight-2 text--light page-title--animated my-5" href="#">Контакты</p>
             </div>
-            <div>
-                <div class="section-title__wrapper">
-                    <p class="section-title section-title blue small hashtag">Навигация</p>
+            <div class="main-footer">
+                <div class="info">
+                    <table>
+                        <tr>
+                            <td class="text--weight-4" width="100px">Email:</td>
+                            <td><a href="mailto:lancelot.ozernuy@gmail.com">lancelot.ozernuy@gmail.com</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text--weight-4">Телефон:</td>
+                            <td><a href="tel:+79205201831">8-920-520-18-31</a></td>
+                        </tr>
+                    </table>
                 </div>
-                <div class="main-footer__navigation">
-                    <a href="#anchor-certificates">Дипломы и сертификаты</a>
-                    <a href="#anchor-about-me">Немного о себе</a>
-                    <a href="#anchor-skills">Навыки и стек</a>
-                    <a href="#anchor-portfolio">Портфолио</a>
-                    <a href="#anchor-top">Наверх</a>
-                </div>
+                <div class="networks-line gap-5"><a class="networks-line__item btn square large icon icon-github has-bg"></a><a class="networks-line__item btn square large icon icon-vk has-bg"></a><a class="networks-line__item btn square large icon icon-telegram has-bg"></a><a class="networks-line__item btn square large icon icon-gmail has-bg"></a></div>
             </div>
         </div>
     </div>
-</footer>
-<script src="/assets/scripts/script.js"></script>
-</body>
+        <script type="module" src="/assets/scripts/script.js"></script>
+    </body>
 </html>
