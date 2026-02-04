@@ -44,33 +44,22 @@ block content
             div.my-5
                 +title('Лучшие проекты', 'text--weight-2 page-title--animated')
 
+            .project-list
+                a.project(href="#", data-index='1', data-modal-open="ProjectInfoModal")
+                    p.project__title Unity Developer Toolkit
+                    img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
 
-            .projects-carousel
-                .project-list
-                    a.project(href="#", data-index='1', data-modal-open="ProjectInfoModal")
-                        p.project__title Unity Developer Toolkit
-                        img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
+                a.project(href="#", data-index='2', data-modal-open="ProjectInfoModal")
+                    p.project__title Unity Developer Toolkit
+                    img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
 
-                    a.project(href="#", data-index='2', data-modal-open="ProjectInfoModal")
-                        p.project__title Unity Developer Toolkit
-                        img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
+                a.project(href="#", data-index='3', data-modal-open="ProjectInfoModal")
+                    p.project__title Unity Developer Toolkit
+                    img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
 
-                    a.project(href="#", data-index='3', data-modal-open="ProjectInfoModal")
-                        p.project__title Unity Developer Toolkit
-                        img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
-
-                    a.project(href="#", data-index='4', data-modal-open="ProjectInfoModal")
-                        p.project__title Unity Developer Toolkit
-                        img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
-
-                .carousel-indicators#indicators
-                    button.indicator(data-index=1, aria-label=`Проект 1`)
-                    button.indicator(data-index=2, aria-label=`Проект 2`)
-                    button.indicator(data-index=3, aria-label=`Проект 3`)
-                    button.indicator(data-index=4, aria-label=`Проект 4`)
-
-                    button.carousel-arrow.carousel-arrow--left(data-target='btn-prev', aria-label='Предыдущий') ❮
-                    button.carousel-arrow.carousel-arrow--right(data-target='btn-next', aria-label='Следующий') ❯
+                a.project(href="#", data-index='4', data-modal-open="ProjectInfoModal")
+                    p.project__title Unity Developer Toolkit
+                    img(src='/assets/images/project_icon.png', alt='/assets/images/project_icon.png')
 
                 +modal('ProjectInfoModal', 'Unity Developer Toolkit')
                     block inner
