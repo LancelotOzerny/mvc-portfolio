@@ -1,13 +1,7 @@
 import { ModalWindow } from "@components/modal/modal.js";
-import { AlertMessage } from "@components/alert-message/alert-message.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     initModalBindings();
-
-    for (let i = 0; i < 3; ++i)
-    {
-        AlertMessage.create('Ваше сообщение отправлено!', 'success')
-    }
 });
 
 function initModalBindings()

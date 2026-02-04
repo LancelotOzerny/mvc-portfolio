@@ -40,35 +40,7 @@
         <div class="my-5">
             <p class="page-title text--weight-2 page-title--animated">Лучшие проекты</p>
         </div>
-        <div class="project-list"><a class="project" href="#" data-index="1" data-modal-open="ProjectInfoModal">
-                <p class="project__title">Unity Developer Toolkit</p><img src="/assets/images/project_icon.png" alt="/assets/images/project_icon.png"></a><a class="project" href="#" data-index="2" data-modal-open="ProjectInfoModal">
-                <p class="project__title">Unity Developer Toolkit</p><img src="/assets/images/project_icon.png" alt="/assets/images/project_icon.png"></a><a class="project" href="#" data-index="3" data-modal-open="ProjectInfoModal">
-                <p class="project__title">Unity Developer Toolkit</p><img src="/assets/images/project_icon.png" alt="/assets/images/project_icon.png"></a><a class="project" href="#" data-index="4" data-modal-open="ProjectInfoModal">
-                <p class="project__title">Unity Developer Toolkit</p><img src="/assets/images/project_icon.png" alt="/assets/images/project_icon.png"></a>
-            <div class="modal__wrapper">
-                <div class="modal" data-modal-name="ProjectInfoModal">
-                    <header class="flex justify-content--between align-items--center">
-                        <div class="modal__title">Unity Developer Toolkit</div>
-                        <button class="btn square icon icon-close small has-bg" data-modal-close="ProjectInfoModal"></button>
-                    </header>
-                    <div class="modal__inner">
-                        <div class="tags">
-                            <div class="tag">Unity</div>
-                            <div class="tag">C#</div>
-                            <div class="tag">Git</div>
-                        </div>
-                        <p class="mt-5"><span class="text--weight-4">Unity Developer Toolkit (UDT)</span>- это набор инструментов для Unity разработчика который поможет
-                            ускорить процесс разработки через набор готовых скриптов, префабов и спрайтов. Теперь можно в пару нажатий
-                            обрабатывать столкновения, создавать счетчик, кошелек персонажа и другое.
-                        </p>
-                    </div>
-                    <footer>
-                        <button class="btn btn--secondary">Git</button>
-                        <button class="btn btn--info">Demo</button>
-                    </footer>
-                </div>
-            </div>
-        </div>
+        <div class="project-list"></div>
     </div>
 </div>
 <div class="page__block py-5">
@@ -98,3 +70,29 @@
         </form>
     </div>
 </div>
+
+<div class="modal__wrapper">
+    <div class="modal" data-modal-name="ProjectInfoModal">
+        <header class="flex justify-content--between align-items--center">
+            <div class="modal__title">Unity Developer Toolkit</div>
+            <button class="btn square icon icon-close small has-bg" data-modal-close="ProjectInfoModal"></button>
+        </header>
+        <div class="modal__inner">
+            <div class="tags">
+                <div class="tag">Unity</div>
+                <div class="tag">C#</div>
+                <div class="tag">Git</div>
+            </div>
+            <p class="mt-5"><span class="text--weight-4">Unity Developer Toolkit (UDT)</span>- это набор инструментов для Unity разработчика который поможет
+                ускорить процесс разработки через набор готовых скриптов, префабов и спрайтов. Теперь можно в пару нажатий
+                обрабатывать столкновения, создавать счетчик, кошелек персонажа и другое.
+            </p>
+        </div>
+        <footer>
+            <button class="btn btn--secondary">Git</button>
+            <button class="btn btn--info">Demo</button>
+        </footer>
+    </div>
+</div>
+
+<script src="/assets/scripts/projects-list.js" type="module"></script>
