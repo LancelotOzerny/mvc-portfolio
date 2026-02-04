@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Modules\Main\Authenticator;
 use Modules\Main\BaseController;
 use Modules\Main\Template;
 
@@ -18,6 +19,12 @@ class HomeController extends BaseController
 
     public function login(): void
     {
+        if (Authenticator::isAuthorized())
+        {
+            header('Location: /');
+            exit;
+        }
+
         Template::getInstance()->setParam('title', 'Авторизация');
 
         Template::getInstance()->includeHeader();
@@ -27,6 +34,12 @@ class HomeController extends BaseController
 
     public function register()
     {
+        if (Authenticator::isAuthorized())
+        {
+            header('Location: /');
+            exit;
+        }
+
         Template::getInstance()->setParam('title', 'Регистрация');
 
         Template::getInstance()->includeHeader();
