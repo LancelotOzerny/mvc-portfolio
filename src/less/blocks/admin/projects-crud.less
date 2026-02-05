@@ -1,0 +1,58 @@
+.projects-crud-list
+{
+    display: grid;
+    gap: 25px;
+}
+
+.crud-project
+{
+    padding: 50px;
+    background-color : #FFFFFF;
+
+    display: grid;
+    grid-row-gap: 25px;
+    transition: .5s;
+    box-shadow: 0 0 4px #22222266, inset 0 0 0 #22222200;
+
+    &__wrapper
+    {
+        transition: .25s;
+    }
+
+    header
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    footer
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 10px;
+    }
+
+    &__main
+    {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+    }
+
+    &__icon
+    {
+        max-width: 128px;
+    }
+
+    &:hover
+    {
+        box-shadow: 0 0 4px #22222266, inset 0 0 10px #22222244;
+    }
+
+    &__wrapper:hover
+    {
+        padding-left: 25px;
+    }
+}
