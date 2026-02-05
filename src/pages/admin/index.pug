@@ -1,0 +1,39 @@
+extends ./../../layouts/main
+
+block content
+  div.page__block.page--height-100.flex.align-items--center.justify-content--center
+    div.page__container
+      // Заголовок
+      +title('Добро пожаловать на сайт', 'page-title--large text--center')
+
+      p.text--center.pt-5 Мы рады видеть вас!
+      p.text--center Этот сайт создан для удобства работы и доступа к важным данным.
+
+      // Основной блок контента
+      div.mt-8.flex.justify-content--center
+        div.auth-page__welcome.p-10.theme--blue.rounded-lg.shadow-lg
+          h2.text--center.text--light Приветствуем вас!
+          p.text--center.text--light.mt-3 Здесь вы найдёте:
+          ul.mt-4.list-disc.pl-6.text--left.text--light
+            li Управление проектами
+            li Личные настройки
+            li Отчёты и аналитика
+            li Поддержка и документация
+
+          // Кнопка перехода
+          div.text--center.mt-6
+            +button('Начать работу', 'btn--info large', '/dashboard')
+
+      // Дополнительная секция (например, преимущества)
+      section.mt-12
+        h3.text--center.page-title--medium Наши преимущества
+        div.flex.flex-wrap.justify-content--around.mt-6.gap-8
+          div.card.p-6.theme--white.shadow-md.rounded-md
+            h4.text--dark Быстрота
+            p.text--dark Оперативные ответы и мгновенная обработка данных.
+          div.card.p-6.theme--white.shadow-md.rounded-md
+            h4.text--dark Безопасность
+            p.text--dark Ваши данные защищены современными алгоритмами шифрования.
+          div.card.p-6.theme--white.shadow-md.rounded-md
+            h4.text--dark Удобство
+            p.text--dark Простой и понятный интерфейс для всех пользователей.

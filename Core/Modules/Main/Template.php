@@ -7,7 +7,7 @@ class Template
 {
     use Singleton;
 
-    public string $template = 'default';
+    public string $template = 'Default';
     public readonly string $templateFolderPath;
     public array $params = [];
 

@@ -9,6 +9,7 @@ class ProjectsController extends BaseController
 {
     public function list(): void
     {
+        Template::getInstance()->template = 'Admin';
         Template::getInstance()->setParam('title', 'Управление проектами');
 
         Template::getInstance()->includeHeader();
