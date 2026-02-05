@@ -1,0 +1,48 @@
+.info-card
+{
+    box-shadow         : 0 0 2px #222222;
+    padding            : 25px;
+    transition         : 0.15s;
+    cursor             : pointer;
+    border-radius      : 5px;
+    display            : inline-grid;
+    grid-row-gap       : 25px;
+    grid-template-rows : 30px 1fr min-content;
+    background-color   : #FFFFFF;
+
+    &__title
+    {
+        transition    : 0.2s;
+        color         : #222222;
+        border-bottom : 2px solid #1D9BEF;
+    }
+
+    &__description
+    {
+        transition : 0.2s;
+        color      : #6C7981;
+    }
+
+    &__buttons
+    {
+        display       : grid;
+        justify-items : end;
+    }
+
+    &:hover
+    {
+        transform  : scale(1.15) translateY(-10px);
+        box-shadow : 0 0 5px #222222;
+
+        &__title
+        {
+            color     : #000000;
+            font-size : 1.1rem;
+        }
+
+        &__description
+        {
+            color : #222222;
+        }
+    }
+}

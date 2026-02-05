@@ -1,0 +1,29 @@
+.sidebar
+{
+    background         : linear-gradient(#2C3E50, #0A1C2E);
+    display            : grid;
+    grid-template-rows : 50px 1fr;
+    padding            : 50px 0 50px 25px;
+    position           : relative;
+    text-wrap          : nowrap;
+    color              : #FFFFFF;
+    z-index            : 10;
+
+    &__title
+    {
+        font-weight    : 300;
+        text-transform : uppercase;
+        position       : relative;
+
+        &::before
+        {
+            content    : '';
+            position   : absolute;
+            bottom     : 20px;
+            left       : 0;
+            width      : 75%;
+            height     : 3px;
+            background : linear-gradient(45deg, #FFFFFF, #FFFFFF00);
+        }
+    }
+}

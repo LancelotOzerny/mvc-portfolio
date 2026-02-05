@@ -1,0 +1,66 @@
+.sidebar-list
+{
+    display        : flex;
+    flex-direction : column;
+
+    &__sublist
+    {
+        position         : absolute;
+        transition       : 0.2s;
+        left             : 100%;
+        top              : 0;
+        width            : 0;
+        overflow-x       : hidden;
+        background-color : #222222EE;
+        box-shadow       : 2px 0 2px #000000;
+    }
+
+    &__expand
+    {
+        position : relative;
+
+        &:hover > &__sublist
+        {
+            width      : 100%;
+            overflow-x : visible;
+        }
+    }
+
+    &__item
+    {
+        display    : grid;
+        padding    : 15px 0 15px 30px;
+        transition : 0.2s;
+        position   : relative;
+        z-index    : 5;
+
+        &::before
+        {
+            content    : '';
+            transition : 0.1s;
+            position   : absolute;
+            left       : 0;
+            top        : 0;
+            width      : 0;
+            height     : 100%;
+            background : #1D9BEF;
+            z-index    : -5;
+        }
+
+        &:hover
+        {
+            padding-left     : 20px;
+            background-color : #AAAAAA44;
+        }
+
+        &.active
+        {
+            padding-left : 20px;
+
+            &::before
+            {
+                width : 100%;
+            }
+        }
+    }
+}
