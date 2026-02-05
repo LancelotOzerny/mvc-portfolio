@@ -11,6 +11,7 @@ Router::add('GET', '/api/projects/list', \Controllers\Api\ProjectsController::cl
 
 /* ADMIN */
 Router::add('GET', '/admin', \Controllers\Admin\HomeController::class, 'index');
+Router::add('GET', '/admin/content', \Controllers\Admin\ContentController::class, 'index');
 Router::add('GET', '/admin/content/projects', \Controllers\Admin\Content\ProjectsController::class, 'list');
 
 
