@@ -7,8 +7,8 @@
 <head>
     <title>WEB Project</title>
 
-    <link rel="stylesheet" href="/assets/css/admin.css">
     <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body class="page">
 <div class="admin-panel">
@@ -31,7 +31,7 @@
     <div class="admin-panel__content">
         <header>
             <div class="page-title__wrapper">
-                <p class="page-title page__title page-title--normal page-title--mini"><?= $this->getParam('title') ?></p>
+                <p class="page-title page-title--small text--weight-2"><?= $this->getParam('title') ?></p>
             </div><a class="btn btn--info btn--large" href="/">Перейти на сайт</a>
         </header>
         <div class="admin-panel__inner">
