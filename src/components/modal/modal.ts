@@ -1,15 +1,31 @@
 export class ModalWindow
 {
     private modal : HTMLElement | null = null;
+    private modalName : string = 'none';
 
-    constructor(private modalName : string)
+    constructor(private modalWindow : string | HTMLElement)
     {
-        this.modal = document.querySelector('*[data-modal-name="' + this.modalName + '"]')
+        if (typeof modalWindow === 'object')
+            this.initByObject(modalWindow);
+        else
+            this.modal = document.querySelector('*[data-modal-name="' + this.modalName + '"]')
 
         this.setStyles();
         this.setOpenButtons();
         this.setCloseButtons();
     }
+
+    private initByObject(modalWindow : HTMLElement): void
+    {
+        this.modal = modalWindow;
+        this.modalName = this.modal.getAttribute('data-modal-name') ?? 'NoNe';
+
+        if (this.modalName === 'NoNe')
+        {
+            console.error('Модальное окно не содержит значения "data-modal-name"!')
+        }
+    }
+
     setStyles(): void
     {
         if (!this.modal)

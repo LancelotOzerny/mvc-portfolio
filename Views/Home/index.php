@@ -95,4 +95,4 @@
     </div>
 </div>
 
-<script src="/assets/scripts/projects-list.js" type="module"></script>
+<script src="/assets/scripts/projects.js" type="module"></script>

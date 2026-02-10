@@ -10,7 +10,8 @@ function initModalBindings()
 
     modals.forEach(item => {
         const name = item.getAttribute('data-modal-name');
-        if (!name) {
+        if (!name)
+        {
             console.warn(`Модальное окно без data-modal-name`, item);
             return;
         }

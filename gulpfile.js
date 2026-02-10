@@ -209,7 +209,7 @@ const tsTasker = new class
             src(pathes.typescript.src)
                 .pipe(tsProject())
                 .js
-                .pipe(replace(/@components\//g, './components/'))
+                .pipe(replace(/@components\//g, '/assets/scripts/components/'))
                 .pipe(dest(pathes.typescript.dest))
                 .on('end', () => {
                     if (done)
