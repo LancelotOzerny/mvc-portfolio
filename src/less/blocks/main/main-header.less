@@ -28,7 +28,7 @@
 
         @media (max-width: 720px)
         {
-            grid-template-rows:  min-content 400px min-content 30px 100px;
+            grid-template-rows:  min-content auto min-content 30px 100px;
         }
     }
 
@@ -37,12 +37,22 @@
         grid-area: name;
         font-size: 3rem;
         text-shadow: 0 0 1px #222;
+
+        @media (max-width: 720px)
+        {
+            font-size: 2.5rem;
+        }
     }
 
     &__jobname
     {
         grid-area: jobname;
         font-size: 2rem;
+
+        @media (max-width: 720px)
+        {
+            font-size: 1.5rem;
+        }
     }
 
     &__control
@@ -57,6 +67,11 @@
         font-style: italic;
         &::before { content: open-quote; }
         &::after { content: close-quote; }
+
+        @media (max-width: 480px)
+        {
+            font-size: .90rem;
+        }
     }
 
     &__image
@@ -66,5 +81,11 @@
         height: 360px;
         border-radius: 1000px;
         border: 10px solid #fff;
+
+        @media (max-width: 480px)
+        {
+            width: 90%;
+            height: auto;
+        }
     }
 }
