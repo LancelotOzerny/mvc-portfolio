@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers;
+namespace Controllers\Pages;
 
 use Modules\Main\Authenticator;
 use Modules\Main\BaseController;

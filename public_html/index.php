@@ -17,8 +17,8 @@ Router::add('GET', '/admin/content/projects/create', \Controllers\Admin\Content\
 
 
 /* PAGES */
-Router::add('GET', '/', Controllers\HomeController::class, 'index');
-Router::add('GET', '/login', Controllers\HomeController::class, 'login');
-Router::add('GET', '/register', Controllers\HomeController::class, 'register');
+Router::add('GET', '/', \Controllers\Pages\HomeController::class, 'index');
+Router::add('GET', '/login', \Controllers\Pages\HomeController::class, 'login');
+Router::add('GET', '/register', \Controllers\Pages\HomeController::class, 'register');
 
 Router::run();
