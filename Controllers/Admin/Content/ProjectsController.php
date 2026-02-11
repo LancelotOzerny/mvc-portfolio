@@ -16,4 +16,14 @@ class ProjectsController extends BaseController
         $this->render('list');
         Template::getInstance()->includeFooter();
     }
+
+    public function create() : void
+    {
+        Template::getInstance()->template = 'Admin';
+        Template::getInstance()->setParam('title', 'Создание проекта');
+
+        Template::getInstance()->includeHeader();
+        $this->render('create');
+        Template::getInstance()->includeFooter();
+    }
 }
