@@ -1,3 +1,8 @@
+<?php
+/** @param \Modules\Main\BaseController $this */
+/** @var array $data */
+?>
+
 <div class="page__block main-header theme--blue py-10">
     <div class="page__container main-header__inner">
         <h1 class="main-header__name">Максим Александрович Беляков</h1>
@@ -40,7 +45,10 @@
         <div class="my-5">
             <p class="page-title text--weight-2 page-title--animated">Лучшие проекты</p>
         </div>
-        <div class="project-list"></div>
+
+        <?php
+        $data['components']['ProjectsList']->render();
+        ?>
     </div>
 </div>
 <div class="page__block py-5">
@@ -94,5 +102,3 @@
         </footer>
     </div>
 </div>
-
-<script src="/assets/scripts/projects.js" type="module"></script>
