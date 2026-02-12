@@ -20,8 +20,7 @@ class HomeController extends BaseController
         /* DATA */
         $data = [];
 
-        $projectInfoList = (new Repository(new Project()))->findAll();
-        $data['components']['ProjectsList'] = new ProjectsList($projectInfoList);
+        $data['components']['ProjectsList'] = new ProjectsList();
 
 
         /* RENDER */
