@@ -1,7 +1,5 @@
 <?php
 
-namespace Core;
-
 class Autoload
 {
     private static array $namespaces = [];
