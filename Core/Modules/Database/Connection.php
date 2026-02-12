@@ -39,7 +39,7 @@ class Connection
 
     private static function getDatabaseConfig(): array
     {
-        $configPath = Application::getInstance()->root . '/config/database.config.php';
+        $configPath = Application::getInstance()->root . '/Config/database.config.php';
 
         if (!file_exists($configPath))
         {
