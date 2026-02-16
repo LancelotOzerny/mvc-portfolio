@@ -3,11 +3,9 @@
 namespace Controllers\Pages;
 
 use Components\ProjectsList\ProjectsList;
-use Models\Project;
 use Modules\Main\Authenticator;
 use Modules\Main\BaseController;
 use Modules\Main\Template;
-use Modules\Orm\Repository;
 
 class HomeController extends BaseController
 {
