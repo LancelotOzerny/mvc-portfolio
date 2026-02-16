@@ -33,6 +33,7 @@ class Router
 
     public static function run() : void
     {
+        $errorController = new ErrorsController();
         $requestMethod = $_SERVER['REQUEST_METHOD'];
         $requestUri = $path = $_SERVER['REQUEST_URI'];
 
@@ -44,29 +45,36 @@ class Router
 
         foreach (self::$routes as $route)
         {
+            // Если найден путь
             if ($route->method === $requestMethod && self::matches($path, $route->path))
             {
                 $controller = new $route->controller();
                 $params = self::extractParams($path, $route->path);
-                call_user_func_array([$controller, $route->action], $params);
 
                 if ($rightsLevel = self::getRightsByPath($route->path))
                 {
-                    // Check User Rights
+                    $user = Authenticator::getCurrentUser();
+
+                    // Если права соответствуют
+                    if ($user && ($user->role_level && $user->role_level >= $rightsLevel))
+                    {
+                        call_user_func_array([$controller, $route->action], $params);
+                        return;
+                    }
+
+                    // Если права не соответствуют
+                    $errorController->page403();
+
+                    return;
                 }
+
+                call_user_func_array([$controller, $route->action], $params);
 
                 return;
             }
         }
 
-        if (class_exists(ErrorsController::class))
-        {
-            (new ErrorsController())->page404();
-        }
-        else
-        {
-            echo 'Page 404!';
-        }
+        $errorController->page404();
     }
 
     private static function getNormalizedPath($requestUri) : string
