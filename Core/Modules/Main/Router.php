@@ -6,10 +6,29 @@ use Controllers\ErrorsController;
 class Router
 {
     static private array $routes = [];
+    static private array $rights = [];
 
     public static function add(string $method, string $path, string $controller, string $action) : void
     {
         self::$routes[] = new RouteElement($method, $path, $controller, $action);
+    }
+
+    public static function addRight(string $path, int $value) : void
+    {
+        self::$rights[$path] = $value;
+    }
+
+    private static function getRightsByPath(string $routePath) : int
+    {
+        foreach (self::$rights as $path => $right)
+        {
+            if (str_starts_with($routePath, $path))
+            {
+                return $right;
+            }
+        }
+
+        return 0;
     }
 
     public static function run() : void
@@ -30,6 +49,12 @@ class Router
                 $controller = new $route->controller();
                 $params = self::extractParams($path, $route->path);
                 call_user_func_array([$controller, $route->action], $params);
+
+                if ($rightsLevel = self::getRightsByPath($route->path))
+                {
+                    // Check User Rights
+                }
+
                 return;
             }
         }
