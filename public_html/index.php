@@ -6,7 +6,8 @@ use Modules\Main\Router;
 /* API */
 Router::add('POST', '/api/auth/register', Controllers\Api\AuthController::class, 'register');
 Router::add('POST', '/api/auth/login', Controllers\Api\AuthController::class, 'login');
-Router::add('GET', '/api/projects/list', \Controllers\Api\ProjectsController::class, 'getList');
+Router::add('GET', '/api/auth/logout', Controllers\Api\AuthController::class, 'logout');
+Router::add('GET', '/api/projects/list', Controllers\Api\ProjectsController::class, 'getList');
 
 
 /* ADMIN */

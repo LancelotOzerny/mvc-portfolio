@@ -4,7 +4,6 @@ namespace Modules\Main;
 
 use Models\User;
 use Modules\Orm\Entity;
-use Modules\Orm\Repository;
 use Repositories\UserRepository;
 
 class Authenticator
@@ -16,21 +15,9 @@ class Authenticator
             return;
         }
 
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user']);
         $_SESSION = [];
-
-        if (ini_get("session.use_cookies"))
-        {
-            $params = session_get_cookie_params();
-            setcookie(
-                session_name(),
-                '',
-                time() - 42000,
-                $params["path"],
-                $params["domain"],
-                $params["secure"],
-                $params["httponly"]
-            );
-        }
 
         session_destroy();
     }
@@ -86,14 +73,14 @@ class Authenticator
             return null;
         }
 
-        if (isset($_SESSION['user']))
+        if (isset($_SESSION['user']) && false)
         {
             $userData = $_SESSION['user'];
             $user = new User();
             $user->id = $userData['id'];
             $user->email = $userData['email'];
-            $user->right_name = $userData['right_name'];
-            $user->right_level = $userData['right_level'];
+            $user->role = $userData['role'];
+            $user->role_level = $userData['role_level'];
 
             return $user;
         }
@@ -113,8 +100,8 @@ class Authenticator
             [
                 'id' => $user->id,
                 'email' => $user->email,
-                'right_name' => $user->right_name,
-                'right_level' => $user->right_level
+                'role' => $user->role,
+                'role_level' => $user->role_level
             ];
         }
 

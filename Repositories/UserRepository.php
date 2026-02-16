@@ -34,7 +34,7 @@ class UserRepository extends Repository
     function findById(int $id) : Entity | null
     {
         $this->queryBuilder
-            ->select(['users.id, email, password_hash, created_at, rights.name as `right_name`, rights.level as `right_level`'])
+            ->select(['`users`.*, rights.name as `role`, rights.level as `role_level`'])
             ->from($this->model->getTableName())
             ->leftJoin('rights', 'users.rights_id = rights.id')
             ->where('users.id = ?', [$id]);

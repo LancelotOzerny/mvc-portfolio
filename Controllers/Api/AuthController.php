@@ -98,4 +98,10 @@ class AuthController extends BaseController
             'user' => $newUser->getFields()
         ]);
     }
+
+    public function logout(): void
+    {
+        Authenticator::logout();
+        Application::getInstance()->locate('/');
+    }
 }

@@ -16,6 +16,10 @@ class Application
     public readonly RequestList $session;
     public readonly RequestList $cookie;
 
+    public function locate(string $url) : void
+    {
+        header('Location: ' . $url);
+    }
 
     private function __construct()
     {
