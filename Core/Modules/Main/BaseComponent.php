@@ -29,9 +29,12 @@ class BaseComponent
 
     final public function render() : void
     {
+        $reflection = new \ReflectionClass(static::class);
+        $classFile = $reflection->getFileName();
+        $classPath = dirname($classFile);
+
         $template = $this->getParam('template') ?? 'Default';
-        $classPath = dirname(static::class);
-        $viewPath = Application::getInstance()->root . "/Views/{$classPath}/{$template}/index.php";
+        $viewPath = "{$classPath}/{$template}/index.php";
         $viewPath = str_replace('\\', '/', $viewPath);
 
         if (file_exists($viewPath))

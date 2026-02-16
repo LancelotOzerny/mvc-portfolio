@@ -11,4 +11,4 @@ Autoload::addNamespace('Modules\\', $root . '/Core/');
 Autoload::addNamespace('Models\\', $root . '/');
 Autoload::addNamespace('Controllers\\', $root . '/');
 Autoload::addNamespace('Repositories\\', $root . '/');
-Autoload::addNamespace('Components\\', $root . '/Views/');
+Autoload::addNamespace('Components\\', $root . '/');
