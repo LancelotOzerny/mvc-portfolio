@@ -10,7 +10,11 @@
         <p class="main-header__slogan">Каждая задача - это новый вызов на моем пути</p>
         <div class="main-header__control mt-5">
             <a class="btn btn--white large text--upper rounded" href="#anchor-projects" type="button" aria-label="Проекты">Проекты</a>
-            <button class="btn btn--white large text--upper rounded" type="button" aria-label="Резюме">Резюме</button>
+            <a class="btn btn--white large text--upper rounded"
+               href="/upload/documents/resume.pdf"
+               target="_blank"
+               type="button"
+               aria-label="Резюме">Резюме</a>
         </div><img class="main-header__image" src="/assets/images/profile.png" alt="Profile image">
     </div>
 </div>
