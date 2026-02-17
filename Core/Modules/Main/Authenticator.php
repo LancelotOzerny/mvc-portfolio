@@ -36,6 +36,7 @@ class Authenticator
                     session_start();
                 }
 
+                $_SESSION['login_time'] = time();
                 $_SESSION['user_id'] = $user->id;
                 $_SESSION['user'] = [
                     'id' => $user->id,

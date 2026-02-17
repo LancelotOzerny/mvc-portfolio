@@ -63,7 +63,14 @@ class Router
                     }
 
                     // Если права не соответствуют
-                    $errorController->page403();
+                    if (Authenticator::isAuthorized())
+                    {
+                        $errorController->page403();
+                    }
+                    else
+                    {
+                        Application::getInstance()->locate('/login/');
+                    }
 
                     return;
                 }
