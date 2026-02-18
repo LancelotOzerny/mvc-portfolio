@@ -60,7 +60,8 @@
         <div class="text--center my-5">
             <p class="page-title text--weight-2 text--center page-title--animated mx-auto" href="#">Форма обратной связи</p>
         </div>
-        <form class="form feedback-form" action="#" method="POST">
+        <form class="form feedback-form" action="/api/feedback/send/" method="POST">
+            <div class="form__group" id="form-errors"></div>
             <div class="form__group--flex">
                 <div class="form__group">
                     <label class="form__label form__label--required" for="name">Имя</label>
@@ -106,3 +107,5 @@
         </footer>
     </div>
 </div>
+
+<script src="/assets/scripts/feedback.js" type="module"></script>
