@@ -89,7 +89,7 @@ class AuthController extends BaseController
         $user->email = $email;
         $user->password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-        $newUser = new UserRepository($user)->create();
+        $newUser = (new UserRepository($user))->create();
         Authenticator::login($email, $password);
 
         header('Content-Type: application/json');

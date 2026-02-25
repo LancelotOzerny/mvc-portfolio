@@ -25,7 +25,7 @@ class Authenticator
     public static function login($email, $password) : bool
     {
         $errors = [];
-        $user = new UserRepository(new User())->findByEmail($email);
+        $user = (new UserRepository(new User()))->findByEmail($email);
 
         if (empty($errors) && $user->password_hash)
         {
