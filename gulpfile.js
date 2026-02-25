@@ -410,3 +410,11 @@ exports.watch = series(
         jsTasker.watch();
     }
 );
+
+exports.develop = series(
+    () => {
+        tsTasker.watch();
+        jsTasker.watch();
+        lessTasker.watch();
+    }
+);
