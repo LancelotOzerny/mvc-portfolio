@@ -3,7 +3,7 @@
 /** @var array $data */
 ?>
 
-<div class="page__block main-header theme--blue py-10">
+<header class="page__block main-header theme--blue py-10">
     <div class="page__container main-header__inner">
         <h1 class="main-header__name">Максим Александрович Беляков</h1>
         <p class="main-header__jobname">WEB-программист, Unity разработчик</p>
@@ -17,9 +17,9 @@
                aria-label="Резюме">Резюме</a>
         </div><img class="main-header__image" src="/assets/images/profile.png" alt="Profile image">
     </div>
-</div>
+</header>
 
-<div class="page__block py-5">
+<section class="page__block py-5">
     <div class="page__container">
         <div class="text--right my-5">
             <p class="page-title text--weight-2 page-title--animated" href="#">Немного о себе</p>
@@ -43,19 +43,21 @@
             </div>
         </div>
     </div>
-</div>
-<div id="anchor-projects" class="page__block py-5">
+</section>
+
+<section id="anchor-projects" class="page__block py-5">
     <div class="page__container">
         <div class="my-5">
-            <p class="page-title text--weight-2 page-title--animated">Лучшие проекты</p>
+            <p class="page-title text--weight-2 page-title--animated">Мои проекты</p>
         </div>
 
         <?php
         $data['components']['ProjectsList']->render();
         ?>
     </div>
-</div>
-<div class="page__block py-5">
+</section>
+
+<section class="page__block py-5">
     <div class="page__container">
         <div class="text--center my-5">
             <p class="page-title text--weight-2 text--center page-title--animated mx-auto" href="#">Форма обратной связи</p>
@@ -66,7 +68,6 @@
                 <div class="form__group">
                     <label class="form__label form__label--required" for="name">Имя</label>
                     <input class="form__input" type="text" id="name" name="name" required>
-                    <p class="form__error is-visible">Поле обязательно для заполнения</p>
                 </div>
                 <div class="form__group">
                     <label class="form__label form__label--required" for="email">Email</label>
@@ -82,7 +83,7 @@
             </div>
         </form>
     </div>
-</div>
+</section>
 
 <div class="modal__wrapper">
     <div class="modal" data-modal-name="ProjectInfoModal">

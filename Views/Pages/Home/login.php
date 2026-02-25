@@ -11,7 +11,6 @@
             <div class="form__group">
                 <label class="form__label form__label--required" for="password">Пароль</label>
                 <input class="form__input" type="password" id="password" name="password" required>
-                <p class="form__error is-hidden">Поле обязательно для заполнения</p>
             </div>
             <div class="form__group text--center mt-2">
                 <button class="btn btn--upper btn--large btn--info" type="submit" aria-label="Войти">Войти</button>
