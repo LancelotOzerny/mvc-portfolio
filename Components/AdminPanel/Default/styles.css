@@ -1,0 +1,225 @@
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+}
+
+.menu-trigger {
+    width: 50px;
+    height: 100%;
+    background: #2c3e50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-right: 2px solid #3498db;
+}
+
+.trigger-icon {
+    color: #ecf0f1;
+    font-size: 20px;
+    transform: rotate(90deg);
+}
+
+.menu-content {
+    width: 0;
+    height: 100%;
+    background: #34495e;
+    position: absolute;
+    top: 0;
+    left: 50px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.menu-header {
+    padding: 20px 15px;
+    border-bottom: 1px solid #4a647d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-header h3 {
+    margin: 0;
+    color: #ecf0f1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #bdc3c7;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: #ecf0f1;
+}
+
+.menu-section {
+    padding: 15px;
+    border-bottom: 1px solid #4a647d;
+}
+
+.menu-section:last-child {
+    border-bottom: none;
+}
+
+.menu-section h4 {
+    color: #bdc3c7;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #4a647d;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.toggle-item span {
+    color: #ecf0f1;
+    font-size: 14px;
+}
+
+/* Стили для toggle‑переключателя */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 26px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #555;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #3498db;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Стили для кнопок */
+.action-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px 15px;
+    background: #34495e;
+    color: white;
+    border: 1px solid #4a647d;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn.full-width {
+    width: 100%;
+}
+
+.action-btn:hover {
+    background: #4a647d;
+    border-color: #5d738d;
+}
+
+.action-btn.primary {
+    background: #3498db;
+    border-color: #2980b9;
+}
+
+.action-btn.primary:hover {
+    background: #2980b9;
+    border-color: #1c5a80;
+}
+
+.action-btn.danger {
+    background: #e74c3c;
+    border-color: #c0392b;
+}
+
+.action-btn.danger:hover {
+    background: #c0392b;
+    border-color: #a93226;
+}
+
+.action-btn.logout {
+    background: #95a5a6;
+    border-color: #7f8c8d;
+}
+
+.action-btn.logout:hover {
+    background: #7f8c8d;
+    border-color: #6c7a89;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .menu-content {
+        width: 240px; /* Уменьшенная ширина для мобильных */
+    }
+
+    .menu-section h4 {
+        font-size: 13px;
+    }
+
+    .toggle-item span {
+        font-size: 13px;
+    }
+
+    .action-btn {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+}

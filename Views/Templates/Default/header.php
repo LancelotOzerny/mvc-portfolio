@@ -12,3 +12,9 @@
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body class="page">
+<?php
+if(\Modules\Main\Authenticator::isAdmin())
+{
+    (new \Components\AdminPanel\AdminPanel())->render();
+}
+?>
