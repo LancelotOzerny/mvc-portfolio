@@ -64,7 +64,12 @@ class Authenticator
 
     public static function isAdmin() : bool
     {
-        return !self::isAuthorized() ?: $_SESSION['user']['role_level'] >= 100;
+        if (self::isAuthorized())
+        {
+            return $_SESSION['user']['role_level'] >= 100;
+        }
+
+        return false;
     }
 
     public static function getCurrentUser() : ?Entity
