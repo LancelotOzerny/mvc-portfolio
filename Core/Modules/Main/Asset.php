@@ -8,7 +8,10 @@ class Asset
 {
     use Singleton;
 
-    private array $assets = [];
+    private array $assets = [
+        'css' => [],
+        'js' => [],
+    ];
 
     public function addStyle(string $path, bool $isPublicDir = false)
     {
