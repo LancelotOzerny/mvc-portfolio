@@ -2,6 +2,14 @@ import {ModalWindow} from "@components/modal/modal.js";
 
 export class Project
 {
+    private data: any = {
+        title: null,
+        description: null,
+        icon: null,
+        tags: null,
+        links: null,
+    };
+
     private dom : any = {
         container: null,
         title: null,
@@ -9,16 +17,6 @@ export class Project
     };
 
     private modal : HTMLElement | null = null;
-
-    set Title(value : string)
-    {
-        this.dom.title.textContent = value;
-    }
-
-    get Title() : string
-    {
-        return this.dom.title.textContent;
-    }
 
     constructor(data : {
         title: string,
@@ -28,23 +26,24 @@ export class Project
         links: [],
     })
     {
+        this.data = data;
         this.createHtml();
-        this.Title = data.title;
+
+        console.log(this.data);
     }
 
     private createHtml() : void
     {
         this.dom.container = document.createElement('a');
-        this.dom.container.setAttribute('href', '#')
         this.dom.container.setAttribute('class', 'project')
         this.dom.container.setAttribute('data-index', '1')
 
         this.dom.title = document.createElement('p');
         this.dom.title.setAttribute('class', 'project__title')
-        this.dom.title.textContent = 'Project Title';
+        this.dom.title.textContent = this.data.title;
 
         this.dom.icon = document.createElement('img');
-        this.dom.icon.setAttribute('src', '/assets/images/project_icon.png')
+        this.dom.icon.setAttribute('src', this.data.icon_src)
 
         this.dom.container.append(this.dom.title);
         this.dom.container.append(this.dom.icon);
@@ -115,7 +114,7 @@ export class Project
             const btn = document.createElement('button');
             btn.className = 'btn btn--secondary';
             btn.textContent = link.title;
-            btn.addEventListener('click', () => window.open(link.href, '_blank'));
+            btn.addEventListener('click', () => window.open(link.url, '_blank'));
             footer.append(btn);
         });
 

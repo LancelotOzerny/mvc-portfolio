@@ -23,7 +23,7 @@ export class ProjectsList
                     project.createModal({
                         id: response[i].id,
                         title: response[i].title,
-                        description: response[i].description,
+                        description: response[i].preview_text,
                         icon: response[i].image_src,
                         tags: response[i].tags,
                         links: response[i].links,

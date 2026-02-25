@@ -12,14 +12,21 @@
             </div>
 
             <div class="mt-3">
-                <label class="form__label mt-3" for="project-title">Теги проекта</label>
-                <div class="tags">
-                    <input type="text" class="form__input" placeholder="tag">
-                </div>
+                <label class="form__label mt-3" for="project-tags">Теги проекта</label>
 
-                <div class="control flex justify-content--end">
-                    <div class="btn btn--info mt-3">Добавить</div>
-                </div>
+                <multi-input-line name="project-links">
+                    <example style="display: grid; grid-template-columns: 1fr 1fr min-content; grid-gap: 15px">
+                        <input name="title" type="text" class="form__input" placeholder="Название ссылки">
+                        <input name="url" type="text" class="form__input" placeholder="Адрес ссылки">
+                        <button class="btn btn--danger icon icon-delete square"></button>
+                    </example>
+
+                    <data style="display: grid; row-gap: 25px;"></data>
+
+                    <control style="display: block; text-align: right; margin-top: 25px">
+                        <button class="btn btn--success icon icon-add square"></button>
+                    </control>
+                </multi-input-line>
             </div>
 
             <div class="mt-3">
