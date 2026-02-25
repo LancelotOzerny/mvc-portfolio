@@ -42,7 +42,7 @@ class Authenticator
                     'id' => $user->id,
                     'email' => $user->email,
                     'right_name' => $user->right_name,
-                    'right_level' => $user->right_level
+                    'role_level' => $user->right_level
                 ];
 
                 return true;
@@ -64,7 +64,7 @@ class Authenticator
 
     public static function isAdmin() : bool
     {
-        return !self::isAuthorized() ?: $_SESSION['user']['right_level'] >= 100;
+        return !self::isAuthorized() ?: $_SESSION['user']['role_level'] >= 100;
     }
 
     public static function getCurrentUser() : ?Entity
