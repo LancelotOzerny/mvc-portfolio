@@ -39,10 +39,27 @@ class BaseComponent
 
         if (file_exists($viewPath))
         {
+            $this->includeAdditionalFiles(dirname($viewPath));
             include $viewPath;
             return;
         }
 
         echo "Template `{$template}` of component `{$classPath}` not found<br/>";
+    }
+
+    private function includeAdditionalFiles(string $path) : void
+    {
+        $stylesPath = $path . '/styles.css';
+        $scriptPath = $path . '/script.js';
+
+        if (file_exists($stylesPath))
+        {
+            Asset::getInstance()->addStyle($stylesPath);
+        }
+
+        if (file_exists($scriptPath))
+        {
+            Asset::getInstance()->addScript($scriptPath);
+        }
     }
 }
