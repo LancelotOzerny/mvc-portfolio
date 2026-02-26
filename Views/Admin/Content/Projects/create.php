@@ -1,51 +1,12 @@
 <div class="form">
-    <div class="form__group--flex">
-        <div class="form__group">
-            <div>
-                <label class="form__label" for="project-title">Название</label>
-                <input class="form__input" type="text" name="project-title" id="project-title" placeholder="Название проекта">
-            </div>
-
-            <div class="mt-3">
-                <label class="form__label mt-3" for="project-description">Описание</label>
-                <textarea class="form__textarea" name="project-description" id="project-description" placeholder="Описание проекта"></textarea>
-            </div>
-
-            <div class="mt-3">
-                <label class="form__label mt-3" for="project-tags">Теги проекта</label>
-
-                <multi-input-line name="project-links">
-                    <example style="display: grid; grid-template-columns: 1fr 1fr min-content; grid-gap: 15px">
-                        <input name="title" type="text" class="form__input" placeholder="Название ссылки">
-                        <input name="url" type="text" class="form__input" placeholder="Адрес ссылки">
-                        <button class="btn btn--danger icon icon-delete square"></button>
-                    </example>
-
-                    <data style="display: grid; row-gap: 25px;"></data>
-
-                    <control style="display: block; text-align: right; margin-top: 25px">
-                        <button class="btn btn--success icon icon-add square"></button>
-                    </control>
-                </multi-input-line>
-            </div>
-
-            <div class="mt-3">
-                <label class="form__label mt-3" for="project-title">Ссылки проекта</label>
-                <div class="links">
-                    <div class="flex">
-                        <input type="text" class="form__input" style="margin-right: 25px; width: 45%" placeholder="Название">
-                        <input type="text" class="form__input" placeholder="Адрес">
-                    </div>
-                </div>
-
-                <div class="control flex justify-content--end">
-                    <div class="btn btn--info mt-3">Добавить</div>
-                </div>
-            </div>
+    <div class="form__group">
+        <div>
+            <label class="form__label" for="project-title">Название</label>
+            <input class="form__input" type="text" name="project-title" id="project-title" placeholder="Название проекта">
         </div>
 
-        <div class="form__group" style="display: inline-flex; width: min-content">
-            <label class="form__label">Иконка проекта</label>
+        <div class="mt-3">
+            <label class="form__label" for="image-input">Иконка проекта</label>
             <div class="image-upload-container">
                 <input type="file" id="image-input" class="image-input" accept="image/*">
 
@@ -54,6 +15,58 @@
                         <span class="upload-text">Перетащите изображение сюда<br>или кликните для выбора</span>
                     </div>
                     <button type="button" class="remove-button" id="remove-button">×</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <label class="form__label mt-3" for="project-description">Описание</label>
+            <textarea class="form__textarea" name="project-description" id="project-description" placeholder="Описание проекта"></textarea>
+        </div>
+
+        <div class="mt-3">
+            <label class="form__label mt-3" for="project-title">Ссылки</label>
+
+            <div class="input-list">
+                <div class="input-list__template">
+                    <input class="form__input" type="text" placeholder="Введите URL">
+                    <input class="form__input" type="text" placeholder="Введите ссылку">
+                </div>
+
+                <div class="input-list__titles">
+                    <p>URL</p>
+                    <p>Ссылка</p>
+                </div>
+
+                <div class="input-list__values">
+                    <div class="input-list__group"></div>
+                </div>
+
+                <div class="input-list__control">
+                    <input type="button" class="btn btn--info" value="Добавить">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <label class="form__label mt-3" for="project-title">Теги</label>
+
+            <div class="input-list">
+                <div class="input-list__template">
+                    <input class="form__input" type="text" placeholder="#тег">
+                </div>
+
+                <div class="input-list__titles">
+                    <p>URL</p>
+                    <p>Ссылка</p>
+                </div>
+
+                <div class="input-list__values">
+                    <div class="input-list__group"></div>
+                </div>
+
+                <div class="input-list__control">
+                    <input type="button" class="btn btn--info" value="Добавить">
                 </div>
             </div>
         </div>

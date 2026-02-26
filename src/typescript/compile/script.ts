@@ -1,7 +1,12 @@
 import { ModalWindow } from "@components/modal/modal.js";
+import { InputListManager } from "./forms/input-list-manager.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     initModalBindings();
+
+    console.log('test 1');
+    let inputListManager = new InputListManager();
+    console.log('test 2');
 });
 
 function initModalBindings()

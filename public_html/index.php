@@ -4,10 +4,10 @@ require_once dirname($_SERVER['DOCUMENT_ROOT']) . '/Core/bootstrap.php';
 use Modules\Main\Router;
 
 /** SYSTEM  */
-require_once dirname($_SERVER['DOCUMENT_ROOT']) . '../Routes/api.php';
-require_once dirname($_SERVER['DOCUMENT_ROOT']) . '../Routes/admin.php';
-require_once dirname($_SERVER['DOCUMENT_ROOT']) . '../Routes/pages.php';
-require_once dirname($_SERVER['DOCUMENT_ROOT']) . '../Routes/rights.php';
+require_once \Modules\Main\Application::getInstance()->root . '/Routes/api.php';
+require_once \Modules\Main\Application::getInstance()->root . '/Routes/admin.php';
+require_once \Modules\Main\Application::getInstance()->root . '/Routes/pages.php';
+require_once \Modules\Main\Application::getInstance()->root . '/Routes/rights.php';
 
 $content = ob_start();
 Router::run();

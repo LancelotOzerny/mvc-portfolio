@@ -20,6 +20,6 @@
             </div>
         </div>
     </div>
-        <script type="module" src="/assets/scripts/script.js"></script>
+    <script type="module" src="/assets/scripts/script.js"></script>
     </body>
 </html>
