@@ -1,8 +1,8 @@
 <?php
-    /** @var \Modules\Main\BaseComponent $this */
-?>
+/** @var \Modules\Main\BaseComponent $this */
 
-<?php $projects = $this->params['projects'] ?>
+$projects = $this->params['projects'];
+?>
 
 <?php if(count($projects)): ?>
 <div class="projects-crud-list">
@@ -10,7 +10,7 @@
     <div class="crud-project__wrapper">
         <div class="crud-project">
             <header>
-                <p class="crud-project__title text--weight-4">[<?= $project->id ?>] <?= $project->title ?></p>
+                <p class="crud-project__title text--weight-4">[<?= $project['id'] ?>] <?= $project['title'] ?></p>
 
                 <div class="crud-project__control">
                     <a href="#" class="btn square btn--info icon icon-edit"></a>
@@ -19,27 +19,26 @@
             </header>
 
             <div class="crud-project__main">
-                <img class="crud-project__icon" src="<?= $project->icon_src ?>" alt="Unity Developer Toolkit">
-                <div>
-                    <?= $project->description ?>
-                </div>
+                <img class="crud-project__icon" src="<?= $project['icon_src'] ?>" alt="Unity Developer Toolkit">
+                <div><?= $project['preview_text'] ?></div>
             </div>
 
             <footer>
                 <div class="tags">
-                <?php if($project->links && count($project->links)): ?>
-                    <span class="tag">C#</span>
-                    <span class="tag">Unity</span>
-                    <span class="tag">Demo</span>
+                <?php if(isset($project['tags']) && count($project['tags'])): ?>
+                    <?php foreach ($project['tags'] as $tag): ?>
+                        <span class="tag"><?= $tag ?></span>
+                    <?php endforeach; ?>
                 <?php endif; ?>
                 </div>
 
-                <p class="text--left"><?= $project->created_at ?></p>
+                <p class="text--left"><?= $project['created_at'] ?></p>
 
                 <div class="crud-project__links">
-                <?php if($project->links && count($project->links)): ?>
-                    <button class="btn btn--secondary">Git</button>
-                    <button class="btn btn--info">Demo</button>
+                <?php if(isset($project['links']) && count($project['links'])): ?>
+                    <?php foreach ($project['links'] as $link): ?>
+                        <a href="<?= $link['url'] ?>" class="btn btn--secondary"><?= $link['title'] ?></a>
+                    <?php endforeach; ?>
                 <?php endif; ?>
                 </div>
             </footer>

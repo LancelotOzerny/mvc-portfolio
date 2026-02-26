@@ -7,6 +7,7 @@ use Models\Project;
 use Modules\Main\BaseController;
 use Modules\Main\Template;
 use Modules\Orm\Repository;
+use Repositories\ProjectRepository;
 
 class ProjectsController extends BaseController
 {
@@ -21,7 +22,7 @@ class ProjectsController extends BaseController
         $data = [];
 
         // Projects List
-        $projectInfoList = (new Repository(new Project()))->findAll();
+        $projectInfoList = (new ProjectRepository(new Project()))->findAll();
         $componentProjectsList = new ProjectsList([
             'projects' => $projectInfoList
         ]);
