@@ -4,11 +4,11 @@ node_modules/
 dist/
 test/
 public_html/
+Config/hidden/
 
 !public_html/favicon.ico
 !*.htaccess
 !*.php
-*.config.php
 
 *.html
 *.css
