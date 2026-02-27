@@ -13,15 +13,15 @@ class Asset
         'js' => [],
     ];
 
-    public function addStyle(string $path, bool $isPublicDir = false)
+    public function addStyle(string $path, array $params = [])
     {
-        $this->addUniqueElement($path, $isPublicDir, 'css');
+        $this->addUniqueElement('css', $path, $params);
     }
-    public function addScript(string $path, bool $isPublicDir = false)
+    public function addScript(string $path, array $params = [])
     {
-        $this->addUniqueElement($path, $isPublicDir, 'js');
+        $this->addUniqueElement('js', $path, $params);
     }
-    private function addUniqueElement(string $path, bool $isPublicDir, string $assetGroup) : void
+    private function addUniqueElement(string $assetGroup, string $path, array $params = []) : void
     {
         if (isset($assets[$assetGroup]) && in_array($path, $assets[$assetGroup]))
         {
@@ -30,7 +30,7 @@ class Asset
 
         $this->assets[$assetGroup][] = [
             'path' => str_replace(Application::getInstance()->root, '', $path),
-            'is_public' => $isPublicDir,
+            'params' => $params,
         ];
     }
 
@@ -41,7 +41,7 @@ class Asset
 
         foreach ($this->assets['css'] as $item)
         {
-            if ($item['is_public'])
+            if (isset($item['params']['is_public_dir']) && $item['params']['is_public_dir'])
             {
                 $result .= '<link rel="stylesheet" href="' . $item['path'] . '">';
                 continue;
@@ -58,15 +58,16 @@ class Asset
 
         foreach ($this->assets['js'] as $item)
         {
-            if ($item['is_public'])
+            $type = $item['params']['type'] ?? 'text/javascript';
+
+            if (isset($item['params']['is_public_dir']) && $item['params']['is_public_dir'])
             {
-                $result .= '<link rel="stylesheet" href="' . $item['path'] . '">';
+                $result .= '<script type="' . $type . '" src="' . $item['path'] . '"></script>';
                 continue;
             }
 
-            $result .= '<script type="text/javascript" src="/api/assets/scripts/?path=' . $item['path'] . '"></script>';
+            $result .= '<script type="' . $type . '" src="/api/assets/scripts/?path=' . $item['path'] . '"></script>';
         }
-
         return $result;
     }
 }
