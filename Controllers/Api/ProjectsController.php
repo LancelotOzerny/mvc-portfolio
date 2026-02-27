@@ -135,4 +135,23 @@ class ProjectsController
         header('Content-Type: application/json');
         echo json_encode($data);
     }
+
+    public function delete(int $id) : void
+    {
+        $arResultList = [];
+        $arResultList['status'] = 'failure';
+        $arResultList['errors'] = [];
+
+        if ((new Repository(new Project()))->deleteById($id))
+        {
+            $arResultList['status'] = 'success';
+        }
+        else
+        {
+            $arResultList['errors'][] = "Ошибка при удалении проекта [$id]";
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode($arResultList);
+    }
 }

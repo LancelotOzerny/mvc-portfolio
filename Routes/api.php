@@ -11,3 +11,4 @@ Router::add('GET', '/api/auth/logout', Controllers\Api\AuthController::class, 'l
 
 Router::add('GET', '/api/projects/list', Controllers\Api\ProjectsController::class, 'getList');
 Router::add('POST', '/api/projects/create', Controllers\Api\ProjectsController::class, 'create');
+Router::add('DELETE', '/api/projects/delete/{id}', Controllers\Api\ProjectsController::class, 'delete');

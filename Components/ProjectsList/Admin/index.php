@@ -2,6 +2,11 @@
 /** @var \Modules\Main\BaseComponent $this */
 
 $projects = $this->params['projects'];
+
+\Modules\Main\Asset::getInstance()->addScript('/assets/scripts/projects/delete.js', [
+    'is_public_dir' => true,
+    'type' => 'module'
+]);
 ?>
 
 <?php if(count($projects)): ?>
@@ -14,7 +19,8 @@ $projects = $this->params['projects'];
 
                 <div class="crud-project__control">
                     <a href="#" class="btn square btn--info icon icon-edit"></a>
-                    <a href="#" class="btn square btn--danger icon icon-delete"></a>
+                    <a href="#" class="btn square btn--danger icon icon-delete"
+                       data-project-id="<?= $project['id'] ?>" data-target="delete-project"></a>
                 </div>
             </header>
 
