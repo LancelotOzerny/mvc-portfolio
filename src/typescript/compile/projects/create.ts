@@ -22,26 +22,6 @@ function handleProjectSubmit(event: Event): void {
 
     // Создаём FormData из всей формы — автоматически включаем все поля и файлы
     const formData = new FormData(form);
-
-    console.log('=== Проверка FormData ===');
-    console.log('Форма содержит:', form.elements.length, 'элементов');
-
-// Проверяем, есть ли хотя бы одно поле
-    let hasFields = false;
-    formData.forEach(() => hasFields = true);
-    console.log('FormData содержит поля:', hasFields);
-
-// Выводим все поля
-    formData.forEach((value, key) => {
-        if (value instanceof File) {
-            console.log(`  ${key}: File(${value.name}, ${value.size} bytes, ${value.type})`);
-        } else {
-            console.log(`  ${key}: ${value}`);
-        }
-    });
-    console.log('====================');
-
-
     const api = new HttpClient();
 
     // Отправляем данные на сервер
