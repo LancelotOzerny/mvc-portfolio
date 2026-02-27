@@ -1,5 +1,6 @@
 export class InputListManager {
     private inputLists: NodeListOf<Element>;
+    private groupIndices: Map<Element, number> = new Map();
 
     constructor() {
         this.inputLists = document.querySelectorAll('.input-list');
@@ -8,6 +9,22 @@ export class InputListManager {
 
     private init(): void {
         this.inputLists.forEach((inputListElement: Element) => {
+            const existingGroups = inputListElement.querySelectorAll('.input-list__group');
+            let maxIndex = 0;
+
+            existingGroups.forEach((group: Element, index: number) => {
+                const groupIndex = index;
+                if (groupIndex >= maxIndex) {
+                    maxIndex = groupIndex + 1;
+                }
+
+                if (!group.querySelector('.btn--danger')) {
+                    const removeButton = this.createRemoveButton();
+                    group.appendChild(removeButton);
+                }
+            });
+
+            this.groupIndices.set(inputListElement, maxIndex);
             this.initializeInputList(inputListElement);
         });
     }
@@ -33,26 +50,38 @@ export class InputListManager {
     ): void {
         if (!template || !valuesContainer) return;
 
-        // Клонируем шаблон
+        const currentIndex = this.groupIndices.get(inputListElement) || 0;
         const clone = template.cloneNode(true) as HTMLElement;
 
-        // Убираем класс шаблона, чтобы он не мешал стилям
         clone.classList.remove('input-list__template');
         clone.classList.add('input-list__group');
 
-        // Очищаем значения полей в новой строке
+        const listName = clone.getAttribute('data-name') ?? null;
         clone.querySelectorAll('input').forEach((input: HTMLInputElement) => {
             input.value = '';
+            const inputName = input.getAttribute('data-name');
+
+            let name = listName ?? '';
+            if (listName && inputName)
+            {
+                name += `[${currentIndex}][${inputName}]`;
+            }
+            else if (listName)
+            {
+                name += '[]';
+            }
+
+            if (name)
+            {
+                input.setAttribute('name', name);
+            }
         });
 
-        // Добавляем кнопку удаления
         const removeButton = this.createRemoveButton();
         clone.appendChild(removeButton);
-
-        // Вставляем новую строку в контейнер
         valuesContainer.appendChild(clone);
 
-        // Переинициализируем обработчики удаления для обновлённого списка
+        this.groupIndices.set(inputListElement, currentIndex + 1);
         this.setupRemoveButtons(inputListElement);
     }
 
@@ -68,12 +97,10 @@ export class InputListManager {
         const removeButtons = inputListElement.querySelectorAll('.btn--danger');
 
         removeButtons.forEach((button: Element) => {
-            // Удаляем старые обработчики, чтобы избежать дублирования
             const clonedButton = button.cloneNode(true) as HTMLInputElement;
             button.replaceWith(clonedButton);
         });
 
-        // Добавляем новые обработчики
         const updatedButtons = inputListElement.querySelectorAll('.btn--danger');
         updatedButtons.forEach((button: Element) => {
             button.addEventListener('click', () => {
