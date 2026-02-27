@@ -1,6 +1,7 @@
 export class HttpClient
 {
     private baseUrl: string;
+    private headers: Record<string, string> = {};
 
     constructor(baseUrl: string = '')
     {
@@ -78,23 +79,26 @@ export class HttpClient
                 headers: {}
             };
 
-            if (['POST', 'PUT'].includes(method))
-            {
-                (config.headers as Record<string, string>)['Content-Type'] =
-                    'application/x-www-form-urlencoded';
-
-                const searchParams = new URLSearchParams();
-                Object.entries(data ?? {}).forEach(([key, value]) => {
-                    searchParams.append(key, String(value));
-                });
-                config.body = searchParams.toString();
+            if (['POST', 'PUT'].includes(method)) {
+                if (data instanceof FormData)
+                {
+                    config.body = data;
+                }
+                else
+                {
+                    (config.headers as Record<string, string>)['Content-Type'] =
+                        'application/x-www-form-urlencoded';
+                    const searchParams = new URLSearchParams();
+                    Object.entries(data ?? {}).forEach(([key, value]) => {
+                        searchParams.append(key, String(value));
+                    });
+                    config.body = searchParams.toString();
+                }
             }
 
-            if ((method === 'GET' || method === 'DELETE') && data)
-            {
+            if ((method === 'GET' || method === 'DELETE') && data) {
                 const searchParams = new URLSearchParams();
-                Object.entries(data).forEach(([key, value]) =>
-                {
+                Object.entries(data).forEach(([key, value]) => {
                     searchParams.append(key, String(value));
                 });
                 fullUrl += '?' + searchParams.toString();
@@ -102,33 +106,35 @@ export class HttpClient
 
             const response = await fetch(fullUrl, config);
 
-            if (!response.ok)
-            {
+            if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
             const result = await response.json();
 
-            if (onSuccess)
-            {
+            if (onSuccess) {
                 onSuccess(result);
             }
-        }
-        catch (error)
-        {
+        } catch (error) {
             const status = error instanceof Error && 'status' in error
                 ? (error as any).status
                 : 0;
             const message = error instanceof Error ? error.message : String(error);
 
-            if (onFailure)
-            {
+            if (onFailure) {
                 onFailure(status, message);
-            }
-            else
-            {
+            } else {
                 console.error('HTTP Request Error:', status, message);
             }
         }
+    }
+
+    addHeader(key: string, value: string): void
+    {
+        this.headers[key] = value;
+    }
+
+    clearHeaders(): void {
+        this.headers = {};
     }
 }
