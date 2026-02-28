@@ -15,17 +15,12 @@
     <div class="sidebar">
         <div class="sidebar__title">Навигация</div>
 
-        <div class="sidebar-list">
-            <a class="sidebar-list__item active" href="/admin/">Главная</a>
-            <div class="sidebar-list__expand">
-                <a class="sidebar-list__item " href="/admin/content/">Управление контентом</a>
-                <div class="sidebar-list__sublist">
-                    <div class="sidebar-list">
-                        <a class="sidebar-list__item " href="/admin/content/projects/">Проекты</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+        (new \Components\Navigation\Navigation([
+                'template' => 'AdminSide',
+                'type' => 'admin'
+        ]))->render();
+        ?>
     </div>
 
     <div class="admin-panel__content">

@@ -3,15 +3,16 @@ return [
     [
         'name' => 'Главная',
         'url' => '/admin/',
+        'depth' => 1
     ],
     [
         'name' => 'Контент',
         'url' => '/admin/content/',
-        'items' => [
-            [
-                'name' => 'Проекты',
-                'url' => '/admin/content/projects/',
-            ],
-        ]
+        'depth' => 1
+    ],
+    [
+        'name' => 'Проекты',
+        'url' => '/admin/content/projects/',
+        'depth' => 2
     ],
 ];
