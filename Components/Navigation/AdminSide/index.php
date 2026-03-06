@@ -43,20 +43,4 @@ for ($i = 0; $i < $level; ++$i)
     echo '</div></div></div>';
 }
 echo '</div>';
-
-
-
-/*
-<div class="sidebar-list__expand">
-    <a class="sidebar-list__item" href="/admin/content/">Управление контентом</a>
-    <div class="sidebar-list__sublist">
-        <div class="sidebar-list">
-            <a class="sidebar-list__item" href="/admin/content/projects/">Проекты</a>
-            <a class="sidebar-list__item" href="/admin/content/articles/">Статьи</a>
-
-
-        </div>
-    </div>
-</div>
- * */
 ?>

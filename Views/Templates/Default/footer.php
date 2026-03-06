@@ -17,7 +17,7 @@
                     </table>
                 </div>
                 <div class="networks-line gap-5">
-                    <a href="https://github.com" class="networks-line__item btn square large icon icon-github has-bg"></a>
+                    <a href="https://github.com/LancelotOzerny/" class="networks-line__item btn square large icon icon-github has-bg"></a>
                     <a href="https://vk.com/lancy2002" class="networks-line__item btn square large icon icon-vk has-bg"></a>
                     <a href="https://t.me/lalalancy" class="networks-line__item btn square large icon icon-telegram has-bg"></a>
                     <a href="mailto:lancelot.ozernuy@gmail.com" class="networks-line__item btn square large icon icon-gmail has-bg"></a>

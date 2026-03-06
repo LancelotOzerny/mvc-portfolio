@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>WEB Project</title>
+    <title><?= $this->params['title'] ?></title>
 
     <link rel="stylesheet" href="/assets/css/components.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
