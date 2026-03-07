@@ -1,6 +1,9 @@
 <?php
 /** @param \Modules\Main\BaseController $this */
 /** @var array $data */
+
+use Components\ProjectsList\ProjectsList;
+
 ?>
 
 <header class="page__block main-header theme--blue py-10">
@@ -52,7 +55,9 @@
         </div>
 
         <?php
-        $data['components']['ProjectsList']->render();
+        (new ProjectsList(
+
+        ))->setParam('template', 'Cards')->render();
         ?>
     </div>
 </section>
