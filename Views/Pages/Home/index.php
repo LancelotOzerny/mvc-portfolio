@@ -55,9 +55,7 @@ use Components\ProjectsList\ProjectsList;
         </div>
 
         <?php
-        (new ProjectsList(
-
-        ))->setParam('template', 'Cards')->render();
+        (new ProjectsList())->setParam('template', 'Cards')->render();
         ?>
     </div>
 </section>
