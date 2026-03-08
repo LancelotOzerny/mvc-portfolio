@@ -14,7 +14,7 @@ class Template
 
     public function __construct(?string $templateFolderPath = null)
     {
-        $this->templateFolderPath = $templateFolderPath ?? Application::getInstance()->root . '/Views/Templates';
+        $this->templateFolderPath = $templateFolderPath ?? Application::getInstance()->root . '/MVC/Views/Templates';
     }
 
     public function setParam(string $key, $value): void

@@ -8,7 +8,7 @@ class BaseController
         $className = static::class;
         $withoutPrefix = preg_replace('~^Controllers\\\\~', '', $className);
         $controllerName = preg_replace('~Controller$~', '', $withoutPrefix);
-        $viewPath = Application::getInstance()->root . '/Views/' . $controllerName . '/' . $view . '.php';
+        $viewPath = Application::getInstance()->root . '/MVC/Views/' . $controllerName . '/' . $view . '.php';
         $viewPath = str_replace('\\', '/', $viewPath);
 
         if (file_exists($viewPath))

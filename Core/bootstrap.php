@@ -9,10 +9,10 @@ require_once $root . '/Core/Autoload.php';
 Autoload::init();
 Autoload::addNamespace('Core\\', $root . '/');
 Autoload::addNamespace('Modules\\', $root . '/Core/');
-Autoload::addNamespace('Models\\', $root . '/');
-Autoload::addNamespace('Controllers\\', $root . '/');
-Autoload::addNamespace('Repositories\\', $root . '/');
-Autoload::addNamespace('Components\\', $root . '/');
+Autoload::addNamespace('Models\\', $root . '/MVC/');
+Autoload::addNamespace('Controllers\\', $root . '/MVC/');
+Autoload::addNamespace('Repositories\\', $root . '/MVC/');
+Autoload::addNamespace('Components\\', $root . '/MVC/');
 
 
 
