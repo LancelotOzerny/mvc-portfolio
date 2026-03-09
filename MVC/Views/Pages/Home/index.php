@@ -3,7 +3,15 @@
 /** @var array $data */
 
 use Components\ProjectsList\ProjectsList;
+use Components\CertificatesList\CertificatesList;
 
+\Modules\Main\Asset::getInstance()->addScript(
+    '/assets/scripts/feedback.js',
+    [
+        'is_public_dir' => true,
+        'type' => 'module'
+    ]
+);
 ?>
 
 <header class="page__block main-header theme--blue py-10">
@@ -51,12 +59,20 @@ use Components\ProjectsList\ProjectsList;
 <section id="anchor-projects" class="page__block py-5">
     <div class="page__container">
         <div class="my-5">
-            <p class="page-title text--weight-2 page-title--animated">Мои проекты</p>
+            <p class="page-title text--weight-2 page-title--animated">Последние проекты</p>
         </div>
 
-        <?php
-        (new ProjectsList())->setParam('template', 'Cards')->render();
-        ?>
+        <?php (new ProjectsList())->setParam('template', 'Cards')->render(); ?>
+    </div>
+</section>
+
+<section id="anchor-projects" class="page__block py-5">
+    <div class="page__container">
+        <div class="my-5">
+            <p class="page-title text--weight-2 page-title--animated">Сертификаты и достижения</p>
+        </div>
+
+        <?php (new CertificatesList())->setParam('template', 'Slider')->render(); ?>
     </div>
 </section>
 
@@ -111,5 +127,3 @@ use Components\ProjectsList\ProjectsList;
         </footer>
     </div>
 </div>
-
-<script src="/assets/scripts/feedback.js" type="module"></script>

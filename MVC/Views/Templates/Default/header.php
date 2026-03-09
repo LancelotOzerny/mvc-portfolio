@@ -17,4 +17,6 @@ if(\Modules\Main\Authenticator::isAdmin())
 {
     (new \Components\AdminPanel\AdminPanel())->render();
 }
+
+(new \Components\Navigation\Navigation())->render();
 ?>
